@@ -2,25 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
   <script src="js/app.js"></script>
-  <title>Document</title>
+  <title>Mind Taker</title>
 </head>
 <body>
-  <div id=headerImage>
-      <img src="http://static.comicvine.com/uploads/original/15/150339/3693980-7909088751-Mento.jpg" alt="mentok">
-    </img>
+  <div class="container center" id=banner>
+      <!-- <img src="http://static.comicvine.com/uploads/original/15/150339/3693980-7909088751-Mento.jpg" alt="mentok"></img> -->
+      <h1>Mentok the Mind-Taker Memory Madness Game</h1>
   </div>
-  <div id="console">
-    <h1>Mentok the Mind-Taker Memory Madness Game</h1>
-    <h3>Brought to you by Mentok the Mind-Taker</h3>
+  <div class="container justify" id=instructions>
     <p>In this game of mind taking, you and another player will battle it out to save your sanity by matching Mentok’s maniacal mind-taking patterns. Each correct match yields one point. Be the first to make it to five or have your mind taken!</p>
-    <p> Press START to begin and press READY to view the first sequence. </p>
-    <button class="startButton">START GAME</button>
-    <button class="replayButton">REPLAY</button>
   </div>
-  <div id="gameContainer">
+  <div class="container center" id="console">
+    <p> Press START to begin and press READY to view the first sequence. </p>
+    <button type="button" class="btn btn-primary btn-lg">START GAME</button>
+    <!-- TODO hide replay button until game over with jQuery -->
+    <button type="button" class="btn btn-primary btn-lg">REPLAY</button>
+  </div>
+  <div class="container" id="gameContainer">
 <!-- TODO create game tile divs with jQuery function
     <div class="gameTile"></div>
     <div class="gameTile"></div>
@@ -28,7 +33,7 @@
     <div class="gameTile"></div>
     <div class="gameTile"></div> -->
   </div>
-  <div id="playContainer">
+  <div class="container" id="playContainer">
 <!-- TODO create play tile divs with jQuery function
     <div class="playTile"></div>
     <div class="playTile"></div>
