@@ -47,9 +47,9 @@ var makeTiles = function() {
   console.log("Made player tiles");
 }
 
-//Makes ready button
 var makeReadyButton = function() {
   $("<button class=readyButton>READY</button>").appendTo( $("#console")); //Adds a ready button to console
+  $(".readyButton").addClass("btn btn-lg");
 }
 
 ///////////////////////////// FUNCTION runGame ///////////////////////////////////////////////////////////////
@@ -88,10 +88,9 @@ var recordPlayerInput = function () {
             checkForMatch();
           }
         } else {
-            return;
-        }
+          return;
+          }
       });
-
       $('#pTile2').click(function() { //Adds click events to playTile 2
         if (clicks < 7) {
           console.log("clicked 2!");
@@ -162,26 +161,79 @@ var makeFlashPattern = function() {
           console.log(makeArrayOfIndices);//Checks to see if we've properly stored our new index
         }
 
+
+
+
+
+
+
+// TODO Create a series of set timeout. Save each gametile as a variable and right a set timeout for each tile.
+
     //Changes text of gameTiles to Flash
     var flashThoseGameTiles = function() {
       for (var i = 0; i < 7; i++) {
           (function() {
             var indexNum = makeArrayOfIndices[i];
-            // console.log(makeArrayOfIndices[i]);
             console.log("Index number is " + indexNum);
             var gameTiles = document.getElementsByClassName('gameTile');
-             setTimeout(function() {
-                  console.log("Index number is " + indexNum);
-                  gameTiles[indexNum].innerHTML ="FLASH1";
-                  console.log(gameTiles[indexNum]);
-                  // gameTiles[1].innerHTML ="FLASH2";
-                  // gameTiles[2].innerHTML ="FLASH3";
-                  // gameTiles[3].innerHTML ="FLASH4";
-                  // gameTiles[4].innerHTML ="FLASH5";
-                }, 1000);
+            var tile = gameTiles[indexNum]
+
+
+            if (i == 0) {
+              var tile1 = tile;
+            } else if (i == 1) {
+                var tile2 = tile;
+            } else if (i == 2) {
+                var tile3 = tile;
+            } else if (i == 3) {
+                var tile4 = tile;
+            } else if (i == 4) {
+              var tile5 = tile;
+            } else if (i == 5) {
+              var tile6 = tile;
+            } else {
+              var tile7 = tile;
+            };
+
+            // TODO  set timeout to change back
+             window.setTimeout(function() {
+                flash(tile2);
+              }, 3000);
               })();
-            }
+
+            // TODO make into switch statement?
+
+
+
+
+
+
+
+            } // end for loop
+
+
+
+
+        var flash = function(tile, indexNum) {
+          console.log("Index number is " + indexNum);
+          $(tile).css('background-color','red');
+        }
+
+
+
+
+
+
+          } // end flashThoseGameTiles
+
+          var makeRed = function(){
+            var sqrNum = squares[Math.floor(Math.random() * (6 - 0)) + 0];
+            $('#'+sqrNum).css('background-color','red');
+            window.setTimeout(function(){
+              makeWhite(sqrNum);
+            }, 800);
           }
+
 
     //Changes gameTiles to clear - not working all the way
     var clearThoseGameTiles = function() {
@@ -195,23 +247,22 @@ var makeFlashPattern = function() {
               })();
             }
           }
-
-  //           var callFunctions = function() {
-  //                 (function() {
-  //                   return setTimeout(function() {
-  //                     flashThoseGameTiles();
-  //                     clearThoseGameTiles();
-  //                       }, 3000);
-  //                     })();
-  //                   }
-  //
-  // callFunctions();
-
   flashThoseGameTiles();
-  clearThoseGameTiles();
-
-
+  // clearThoseGameTiles();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Checks if player inputs the correct flash pattern
 var checkForMatch = function() {
@@ -245,7 +296,6 @@ var keepScore = function(match, turn) {
     alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
     alert("Press READY for next turn");
     checkWin();
-
   } else if (match == true && turn == 1) { //Not sure why this is not using match set to true.
     player2score = player2score + 1;
     alert(" player 2 score is now " +  player2score);
@@ -270,17 +320,9 @@ var checkWin = function() {
     gameOver = true;
     return gameOver;
   } else {
-    // document.getElementsByClassName('gameTile').innerHTML = "clear";
-    // console.log(document.getElementsByClassName('gameTile').innerHTML = "NONE");///This is not properly clearing the text. But we shouldn't have to clear the text because the tiles should flash and clear themselves when the makeFlashPattern() runs.
     return gameOver; //Need to add in a loop function here.
   }
-  }
+}
 //call function below to reset game for next round
   activateReadyButton();
 } //End of runGame function
-
-
-
-    // $(".gameTile").eq(i).c({"background-color": "blue"})
-    // $(".gameTile").css({"background-color": "blue"})
-    //Above replace console.log with a function that highlights the clicked tiles or temporarily replaces it with a face
