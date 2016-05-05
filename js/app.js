@@ -3,17 +3,14 @@ window.onload = function () {
       makeTiles();
       makeReadyButton();
       runGame();
-      ///We should call runGame() here//
   })
 
-
-  $('button.replayButton').click(function() { //Replay button not linked to anything yet.
+  $('button.replayButton').click(function() { // TODO  link eplay button
       console.log("Clear Board");
       player1score = 0;
       player2score = 0;
       turnNumber = 1;
   })
-////Calls functions up here///
 };
 
 ///////////Global Variables/////////////////
@@ -105,7 +102,6 @@ var recordPlayerInput = function () {
             return;
         }
       });
-
       $('#pTile3').click(function() { //Adds click events to playTile 3
         if (clicks < 7) {
           console.log("clicked 3!");
@@ -120,7 +116,6 @@ var recordPlayerInput = function () {
             return;
         }
       });
-
       $('#pTile4').click(function() { //Adds click events to playTile 4
         if (clicks < 7) {
           console.log("clicked 4!");
@@ -135,7 +130,6 @@ var recordPlayerInput = function () {
             return;
         }
       });
-
       $('#pTile5').click(function() { //Adds click events to playTile 5
         if (clicks < 7) {
           console.log("clicked 5!");
@@ -157,114 +151,147 @@ var makeFlashPattern = function() {
     for (var i = 0; i < 7; i++) {
       var randomIndices = Math.floor(Math.random() * (5));
         makeArrayOfIndices.push(randomIndices);
-          console.log("MAKING IT SHINY");
-          console.log(makeArrayOfIndices);//Checks to see if we've properly stored our new index
+          console.log("Hit makeFlashPattern");
+          // console.log(makeArrayOfIndices); //Checks to see if we've properly stored our new index
         }
-
-
-
-
-
-
-
 // TODO Create a series of set timeout. Save each gametile as a variable and right a set timeout for each tile.
-
     //Changes text of gameTiles to Flash
     var flashThoseGameTiles = function() {
+      console.log("Hit flashThoseGameTiles");
+      console.log(makeArrayOfIndices);
       for (var i = 0; i < 7; i++) {
-          (function() {
-            var indexNum = makeArrayOfIndices[i];
-            console.log("Index number is " + indexNum);
-            var gameTiles = document.getElementsByClassName('gameTile');
-            var tile = gameTiles[indexNum]
+        console.log(i)
+        var gameTiles = document.getElementsByClassName('gameTile');
 
-
-            if (i == 0) {
-              var tile1 = tile;
-            } else if (i == 1) {
-                var tile2 = tile;
+        // TODO make into switch statement?
+            if (i == 1) {
+              var flash1 = function() {
+                var indexNum = makeArrayOfIndices[0];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','blue');
+                console.log("tile 1 hit BLUE");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[0])
+              }
             } else if (i == 2) {
-                var tile3 = tile;
+              var flash2 = function() {
+                var indexNum = makeArrayOfIndices[1];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','green');
+                console.log("tile 2 hit GREEN");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[1])
+              }
             } else if (i == 3) {
-                var tile4 = tile;
+              var flash3 = function() {
+                var indexNum = makeArrayOfIndices[2];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','yellow');
+                console.log("tile 3 hit YELLOW");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[2])
+              }
             } else if (i == 4) {
-              var tile5 = tile;
+              var flash4 = function() {
+                var indexNum = makeArrayOfIndices[3];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','purple');
+                console.log("tile 4 hit PURPLE");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[3])
+              }
             } else if (i == 5) {
-              var tile6 = tile;
+              var flash5 = function() {
+                var indexNum = makeArrayOfIndices[4];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','pink');
+                console.log("tile 4 hit PINK");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[4])
+              }
+            } else if (i == 6) {
+              var flash6 = function() {
+                var indexNum = makeArrayOfIndices[5];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','orange');
+                console.log("tile 4 hit ORANGE");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[5])
+              }
             } else {
-              var tile7 = tile;
+              var flash7 = function() {
+                var indexNum = makeArrayOfIndices[6];
+                var tile = gameTiles[indexNum]
+                $(tile).css('background-color','gray');
+                console.log("tile 4 hit GRAY");
+                console.log("i = " + i)
+                console.log("Indexnum = " + indexNum)
+                console.log("Index value = " + makeArrayOfIndices[6])
+              }
             };
-
-            // TODO  set timeout to change back
-             window.setTimeout(function() {
-                flash(tile2);
-              }, 3000);
-              })();
-
-            // TODO make into switch statement?
-
-
+          } // end for loop
+        // set timeout for multiple flash functions
+        var flashFunctions = [flash1, flash2, flash3, flash4, flash5, flash6, flash7]
+            i = 0;
+            function callFlash() {
+              flashFunctions[i++]();
+                if (i < flashFunctions.length) setTimeout(callFlash, 300);
+                } window.setTimeout(callFlash, 300);
 
 
-
-
-
-            } // end for loop
-
-
-
-
-        var flash = function(tile, indexNum) {
-          console.log("Index number is " + indexNum);
-          $(tile).css('background-color','red');
-        }
-
-
-
-
-
-
+                // TODO change revert tile color
+            //     var clear1 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile1).css('background-color','black');
+            //     }
+            //
+            //     var clear2 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile2).css('background-color','black');
+            //     }
+            //
+            //     var clear3 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile3).css('background-color','black');
+            //     }
+            //
+            //     var clear4 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile4).css('background-color','black');
+            //     }
+            //
+            //     var clear5 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile5).css('background-color','black');
+            //     }
+            //
+            //     var clear6 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile6).css('background-color','black');
+            //     }
+            //
+            //     var clear7 = function(tile, indexNum) {
+            //       console.log("Index number is " + indexNum);
+            //       $(tile7).css('background-color','black');
+            //     }
+            //
+            // var clearFunctions = [clear1, clear2, clear3, clear4, clear5, clear6, clear7]
+            //   i = 0;
+            //   function clearFlash() {
+            //       clearFunctions[i++]();
+            //       if (i < clearFunctions.length) setTimeout(clearFlash, 500);
+            //     } window.setTimeout(clearFlash, 300);
           } // end flashThoseGameTiles
-
-          var makeRed = function(){
-            var sqrNum = squares[Math.floor(Math.random() * (6 - 0)) + 0];
-            $('#'+sqrNum).css('background-color','red');
-            window.setTimeout(function(){
-              makeWhite(sqrNum);
-            }, 800);
-          }
-
-
-    //Changes gameTiles to clear - not working all the way
-    var clearThoseGameTiles = function() {
-      for (var i = 0; i < 7; i++) {
-          (function() {
-            var indexNum = makeArrayOfIndices[i];
-            var gameTiles = document.getElementsByClassName('gameTile');
-             setTimeout(function() {
-                  gameTiles[indexNum].innerHTML ="clear";
-                }, 3000);
-              })();
-            }
-          }
   flashThoseGameTiles();
-  // clearThoseGameTiles();
-}
+} // end makeFlashPattern
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Checks if player inputs the correct flash pattern
+//Check if player inputs the correct flash pattern
 var checkForMatch = function() {
   var match = true;
   for (var i = 0; i < 7; i++) {
@@ -288,7 +315,7 @@ var checkForMatch = function() {
    }
 }
 
-//Tracks each players score
+//Track each players score
 var keepScore = function(match, turn) {
   if (match == true && turn == -1) { //Not sure why this is not using match set to true.
     player1score = player1score + 1;
@@ -309,7 +336,7 @@ var keepScore = function(match, turn) {
   }
 }
 
-//Checks if either player scores 5 and declares a winner
+//Check if either player scores 5 and declares a winner
 var checkWin = function() {
   if (player1score == 5) {
     console.log("Player 1 wins!");
@@ -323,6 +350,6 @@ var checkWin = function() {
     return gameOver; //Need to add in a loop function here.
   }
 }
-//call function below to reset game for next round
+//Call function below to reset game for next round
   activateReadyButton();
 } //End of runGame function
