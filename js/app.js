@@ -5,7 +5,7 @@ window.onload = function () {
       runGame();
   })
 
-  $('button.replayButton').click(function() { // TODO  link eplay button
+  $('button.replayButton').click(function() {
       console.log("Clear Board");
       player1score = 0;
       player2score = 0;
@@ -18,7 +18,7 @@ var playerClickArray = [];
 var makeArrayOfIndices = [];
 var player1score = 0;
 var player2score = 0;
-var turn = 1; //Need to loop to change value
+var turn = 1;
 var match = false;
 var clicks = 0;
 var turnNumber = 0;
@@ -26,14 +26,13 @@ var turnNumber = 0;
 
 // function makeTiles() Makes 5 blank tiles
 //Start game makes tiles everytime it's clicked - need to fix.
-//Current HTML file has pre-made divs with styles, just to visualize. Those divs are commented out in the HTML file bc makeTiles works correctly.
 var makeTiles = function() {
-  // var tiles = $("div").create; //Not necessary now, but may be helpful for making code more dry later.
+  // //TODO refactor repetative code
   $("<div class=gameTile id=gTile1></div>").appendTo( $("#gameContainer"));
   $("<div class=gameTile id=gTile2></div>").appendTo( $("#gameContainer"));
   $("<div class=gameTile id=gTile3></div>").appendTo( $("#gameContainer"));
   $("<div class=gameTile id=gTile4></div>").appendTo( $("#gameContainer"));
-  // TODO remove last div and change 5 to 4 when generating index array
+  // TODO remove last div and change 5 to 4 when generating index array - based on feedback that 5 tiles is too difficult
   $("<div class=gameTile id=gTile5></div>").appendTo( $("#gameContainer"));
   console.log("Made game tiles");
 
@@ -41,7 +40,7 @@ var makeTiles = function() {
   $("<div class=playTile id=pTile2 value=1></div>").appendTo( $("#playContainer"));
   $("<div class=playTile id=pTile3 value=2></div>").appendTo( $("#playContainer"));
   $("<div class=playTile id=pTile4 value=3></div>").appendTo( $("#playContainer"));
-  // TODO remove last div and change 5 to 4 when generating index array
+  // TODO remove last div and change 5 to 4 when generating index array - based on feedback that 5 tiles is too difficult
   $("<div class=playTile id=pTile5 value=4></div>").appendTo( $("#playContainer"));
   console.log("Made player tiles");
 }
@@ -54,10 +53,8 @@ var makeReadyButton = function() {
 ///////////////////////////// FUNCTION runGame ///////////////////////////////////////////////////////////////
 var runGame = function() {
   var gameOver = false;
-  //here we should clear the makeArrayOfIndices and playerClickArray variables
-  // while (gameOver = false) {
 
-////////////////EVERYTHING BELOW IS NOW  INSIDE runGame///////////////////////////////////////////////////////
+////////////////EVERYTHING BELOW IS NOW INSIDE runGame///////////////////////////////////////////////////////
 var activateReadyButton = function() {
   $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
       makeArrayOfIndices = [];
@@ -161,202 +158,77 @@ var makeFlashPattern = function() {
     var flashThoseGameTiles = function() {
       console.log("Hit flashThoseGameTiles");
       console.log(makeArrayOfIndices);
-      for (var i = 0; i < 7; i++) {
-        console.log(i)
+
+
+
+      var flashes = [];
+
+
+
+
+      for (var i = -1; i < 7; i++) {
         var gameTiles = document.getElementsByClassName('gameTile');
 
         // TODO make into switch statement?
-            if (i == 1) {
-              var flash1 = function() {
-                var indexNum = makeArrayOfIndices[0];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 1 hit BLUE");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[0])
-              }
+        var flash = function(i) {
+           var indexNum = makeArrayOfIndices[i];
+           var tile = gameTiles[indexNum]
+           $(tile).css('background-color','blue');
+           // console.log("tile 1 hit BLUE");
+           console.log("i = " + i)
+           console.log("Indexnum = " + indexNum)
+           console.log("Index value = " + makeArrayOfIndices[i])
+         }
+         var clear = function(i) {
+           var indexNum = makeArrayOfIndices[i];
+           var tile = gameTiles[indexNum]
+           $(tile).css('background-color','gray');
+         }
 
-              var clear1 = function() {
-                var indexNum = makeArrayOfIndices[0];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear BLUE");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[0])
-              }
-            } else if (i == 2) {
-              var flash2 = function() {
-                var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 2 hit GREEN");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[1])
-              }
-              var clear2 = function() {
-                var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear GREEN");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[1])
-              }
 
-            } else if (i == 3) {
-              var flash3 = function() {
-                var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 3 hit YELLOW");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[2])
-              }
-              var clear3 = function() {
-                var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear YELLOW");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[2])
-              }
-            } else if (i == 4) {
-              var flash4 = function() {
-                var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 4 hit PURPLE");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[3])
-              }
-              var clear4 = function() {
-                var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear PURPLEr");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[3])
-              }
-            } else if (i == 5) {
-              var flash5 = function() {
-                var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 5 hit PINK");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[4])
-              }
-              var clear5 = function() {
-                var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear PINK");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[4])
-              }
-            } else if (i == 6) {
-              var flash6 = function() {
-                var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 6 hit ORANGE");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[5])
-              }
-              var clear6 = function() {
-                var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // // console.log("clear ORANGE");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[5])
-              }
-            } else {
-              var flash7 = function() {
-                var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-                // console.log("tile 7 hit GRAY");
-                console.log("i = " + i)
-                console.log("Indexnum = " + indexNum)
-                console.log("Index value = " + makeArrayOfIndices[6])
-              }
-              var clear7 = function() {
-                var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                // console.log("clear GRAY");
-                // console.log("i = " + i)
-                // console.log("Indexnum = " + indexNum)
-                // console.log("Index value = " + makeArrayOfIndices[6])
-              }
-            };
+
+        flashes.push(flash(i))
+        flashes.push(clear(i))
+
+
           } // end for loop
         // set timeout for multiple flash functions
-        // var flashFunctions = [flash1, flash2, flash3, flash4, flash5, flash6, flash7]
-        var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7]
 
-            i = 0;
+        //
+        // console.log("hit call flash")
+        // console.log(i);
+        // console.log(flashes);
+            var x = 0;
+            // flashes.push(flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash7, clear7, flash6, clear6)
+
             function callFlash() {
-              flashFunctions[i++]();
-                if (i < flashFunctions.length) setTimeout(callFlash, 1000);
+              console.log(flashes.length)
+              flashes[x]();
+              x++;
+              // console.log(flashes[x])
+                if (x < flashes.length) setTimeout(callFlash, 1000);
               } window.setTimeout(callFlash, 1000);
 
 
-                // // TODO change revert tile color
-                // var clear1 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile1).css('background-color','gray');
-                // }
-                //
-                // var clear2 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile2).css('background-color','gray');
-                // }
-                //
-                // var clear3 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile3).css('background-color','gray');
-                // }
-                //
-                // var clear4 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile4).css('background-color','gray');
-                // }
-                //
-                // var clear5 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile5).css('background-color','gray');
-                // }
-                //
-                // var clear6 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile6).css('background-color','gray');
-                // }
-                //
-                // var clear7 = function(tile, indexNum) {
-                //   console.log("Index number is " + indexNum);
-                //   $(tile7).css('background-color','gray');
-                // }
 
-            // var clearFunctions = [clear1, clear2, clear3, clear4, clear5, clear6, clear7]
-            //   i = 0;
-            //   function clearFlash() {
-            //       clearFunctions[i++]();
-            //       if (i < clearFunctions.length) setTimeout(clearFlash, 10001);
-            //     } window.setTimeout(clearFlash, 1001);
+
+// flashes = []
+// flashes = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash7, clear7, flash6, clear6]
+// flashes[0] = flash1
+// flashes [x++] = flashes[0] = flashes1
+
             //
+            // function callFlash() {
+            //   flash2();
+            //   console.log(x)
+            //     if (x < flashes.length) setTimeout(flash2, 1000);
+            //   } window.setTimeout(flash2, 1000);
+
+
+
+
+
+
 
 
 
