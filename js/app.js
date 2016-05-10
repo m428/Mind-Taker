@@ -25,9 +25,9 @@ var turnNumber = 0;
 ////////////////////////////////////////////
 
 // function makeTiles() Makes 5 blank tiles
-//Start game makes tiles everytime it's clicked - need to fix.
+//TODO Start game makes tiles everytime it's clicked - need to fix.
 var makeTiles = function() {
-  // //TODO refactor repetative code
+  //TODO refactor repetative code
   $("<div class=gameTile id=gTile1></div>").appendTo( $("#gameContainer"));
   $("<div class=gameTile id=gTile2></div>").appendTo( $("#gameContainer"));
   $("<div class=gameTile id=gTile3></div>").appendTo( $("#gameContainer"));
@@ -46,7 +46,7 @@ var makeTiles = function() {
 }
 
 var makeReadyButton = function() {
-  $("<button class=readyButton>READY</button>").appendTo( $("#console")); //Adds a ready button to console
+  $("<button class=readyButton>READY</button>").appendTo( $("#console")); //Adds ready button to console
   $(".readyButton").addClass("btn btn-lg");
 }
 
@@ -56,7 +56,7 @@ var runGame = function() {
 
 ////////////////EVERYTHING BELOW IS NOW INSIDE runGame///////////////////////////////////////////////////////
 var activateReadyButton = function() {
-  $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
+  $('button.readyButton').click(function() { //Adds listener to ready button and generates flash pattern on click
       makeArrayOfIndices = [];
       playerClickArray = [];
       clicks = 0;
@@ -72,6 +72,7 @@ var activateReadyButton = function() {
 }
 
 //Adds click event listeners to  playTiles and records each click in an array.
+// TODO refactor repetative code
 var recordPlayerInput = function () {
       $('#pTile1').click(function() { //Adds click events to playTile 1
         if (clicks < 7) {
@@ -145,27 +146,18 @@ var recordPlayerInput = function () {
       });
 }
 
-//Generates random flash sequence and flashes tiles - not working all the way
+//Generates random flash sequence and flash tiles
 var makeFlashPattern = function() {
     for (var i = 0; i < 7; i++) {
       var randomIndices = Math.floor(Math.random() * (5));
         makeArrayOfIndices.push(randomIndices);
-          console.log("Hit makeFlashPattern");
-          // console.log(makeArrayOfIndices); //Checks to see if we've properly stored our new index
+          // console.log(makeArrayOfIndices); //Check to see if we've properly stored our new index
         }
-// TODO Create a series of set timeout. Save each gametile as a variable and right a set timeout for each tile.
-    //Changes text of gameTiles to Flash
+
     var flashThoseGameTiles = function() {
-      console.log("Hit flashThoseGameTiles");
       console.log(makeArrayOfIndices);
-
-
-
+      console.log("WERE ON THE RIGHT BRANCH!!!!!")
       var flashes = [];
-
-
-
-
       for (var i = -1; i < 7; i++) {
         var gameTiles = document.getElementsByClassName('gameTile');
 
@@ -174,7 +166,7 @@ var makeFlashPattern = function() {
            var indexNum = makeArrayOfIndices[i];
            var tile = gameTiles[indexNum]
            $(tile).css('background-color','blue');
-           // console.log("tile 1 hit BLUE");
+
            console.log("i = " + i)
            console.log("Indexnum = " + indexNum)
            console.log("Index value = " + makeArrayOfIndices[i])
