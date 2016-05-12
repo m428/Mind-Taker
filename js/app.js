@@ -91,48 +91,47 @@ var recordPlayerInput = function() {
      $('.playTile').click(function() {
         var id = $(this).attr('id')
 
+        //Capture player input and store clicks as an array for comparison against generated game array
         var captureClicks = function() {
-          if (click == 1 && clicks < 7) {
-            playerClickArray.push(0);
-            clicks++;
-            console.log(playerClickArray);
-            if (clicks == 7) {
-              checkForMatch();
-            }
-          } else if (click == 2 && clicks < 7) {
-              playerClickArray.push(1);
-              clicks++;
-              console.log(playerClickArray);
-              if (clicks == 7) {
-                checkForMatch();
-              }
-          } else if (click == 3 && clicks < 7) {
-              playerClickArray.push(2);
-              clicks++;
-              console.log(playerClickArray);
-              if (clicks == 7) {
-                checkForMatch();
-              }
-          } else if (click == 4 && clicks < 7) {
-              playerClickArray.push(3);
-              clicks++;
-              console.log(playerClickArray);
-              if (clicks == 7) {
-                checkForMatch();
-                }
-            } else if (click == 5 && clicks < 7) {
+          switch(click) {
+            case 1:
+              if (clicks < 7) {
+                playerClickArray.push(0);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 2:
+              if (clicks < 7) {
+                playerClickArray.push(1);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 3:
+              if (clicks < 7) {
+                playerClickArray.push(2);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 4:
+              if (clicks < 7) {
+                playerClickArray.push(3);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 5:
+              if (clicks < 7) {
                 playerClickArray.push(4);
                 clicks++;
                 console.log(playerClickArray);
-                if (clicks == 7) {
-                  checkForMatch();
-                  }
-            } else {
-                return;
-            }
+              } break;
+          } //end switch
+          //Check for match if player has clicked 7 tiles
+          if (clicks == 7) {
+            checkForMatch();
+          } else {
+            return;
+          }
         } //end captureClicks
-
-
 
         switch(id) {
           case 'pTile1':
