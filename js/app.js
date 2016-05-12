@@ -320,6 +320,7 @@ var showWinner = function() {
     //TODO add conditional to state which player wins.
     $("<div class=endGame id=scoreBoard></div>").appendTo( $("#endGame"));
     $("<button class=replayButton>PLAY AGAIN</button>").appendTo( $("#console")); //Adds a ready button to console
+    $(".replayButton").addClass("btn btn-lg");
     $('button.replayButton').click(function() {
         console.log("Clear Board");
         player1score = 0;
