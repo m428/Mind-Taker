@@ -41,6 +41,8 @@ var makeTiles = function() {
 
 //Create scoreboard and display initial score of 0
 var scoreBoard = function() {
+  $("<div class=score>PLAYER 1</div>").appendTo( $("#player1"));
+  $("<div class=score>PLAYER 2</div>").appendTo( $("#player2"));
   $("<div class=score id=p1></div>").appendTo( $("#player1"));
   $("<div class=score id=p2></div>").appendTo( $("#player2"));
   document.getElementById("p1").innerHTML = player1score;
@@ -75,10 +77,54 @@ var activateReadyButton = function() {
 
 //Adds click event listeners to playTiles and records each click in an array.
 //TODO refactor repetative code
+
+//
+//
+// var highlightTile = function() {
+//   $('#pTile1').css('background-color','green')
+//   if
+//   else if
+//   else if
+//   else if
+//   else if
+//   else
+
+// }
+
+// var highlightTile = function() {
+//   switch(true) {
+//     case click1 = true:
+//       $('#pTile1').css('background-color','green');
+//       click1 = false;
+//     case click2 = false:
+//       $('#pTile2').css('background-color','green');
+//         click2 = false;
+//     case click3 = true:
+//         $('#pTile3').css('background-color','green');
+//     case click4 = true:
+//         $('#pTile4').css('background-color','green');
+//     case click5 = true:
+//       $('#pTile5').css('background-color','green');
+//     case click6 = true:
+//       $('#pTile6').css('background-color','green');
+//     case click7 = true:
+//       $('#pTile7').css('background-color','green');
+//     }
+//
+// }
+
+
+
+
 var recordPlayerInput = function () {
+
       $('#pTile1').click(function() { //Adds click events to playTile 1
+        var click1 = true
+        $('#pTile1').css('background-color','red')
+       setTimeout(highlightTile, 200)
+
+
         if (clicks < 7) {
-          console.log("clicked 1!");
           playerClickArray.push(0);
           clicks++;
           console.log(playerClickArray);
@@ -90,8 +136,10 @@ var recordPlayerInput = function () {
           }
       });
       $('#pTile2').click(function() { //Adds click events to playTile 2
+        var click1 = true
+        $('#pTile2').css('background-color','red')
+       setTimeout(highlightTile, 200)
         if (clicks < 7) {
-          console.log("clicked 2!");
           playerClickArray.push(1);
           clicks++;
           console.log(playerClickArray);
@@ -104,7 +152,6 @@ var recordPlayerInput = function () {
       });
       $('#pTile3').click(function() { //Adds click events to playTile 3
         if (clicks < 7) {
-          console.log("clicked 3!");
           playerClickArray.push(2);
           clicks++;
           console.log(playerClickArray);
@@ -117,7 +164,6 @@ var recordPlayerInput = function () {
       });
       $('#pTile4').click(function() { //Adds click events to playTile 4
         if (clicks < 7) {
-          console.log("clicked 4!");
           playerClickArray.push(3);
           clicks++;
           console.log(playerClickArray);
@@ -130,7 +176,6 @@ var recordPlayerInput = function () {
       });
       $('#pTile5').click(function() { //Adds click events to playTile 5
         if (clicks < 7) {
-          console.log("clicked 5!");
           playerClickArray.push(4);
           clicks++;
           console.log(playerClickArray);
@@ -328,7 +373,6 @@ var showWinner = function() {
         turnNumber = 0;
         $(".replayButton").hide()
         $(".startButton").show()
-
     })
   }
   else {
