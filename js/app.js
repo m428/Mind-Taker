@@ -3,8 +3,8 @@ window.onload = function () {
       makeTiles();
       makeReadyButton();
       runGame();
-      // TODO call scoreBoard
       scoreBoard();
+      $(".startButton").hide()
   })
 };
 
@@ -299,12 +299,10 @@ var keepScore = function(match, turn) {
 //Check if either player has scored 5 times and declares a winner
 var checkWin = function() {
   if (player1score == 2) {
-    // console.log("Player 1 wins!");
     gameOver = true;
     showWinner();
     return gameOver;
   } else if (player2score == 2) {
-    // console.log("Player 2 wins!");
     gameOver = true;
       showWinner();
     return gameOver;
@@ -315,9 +313,9 @@ var checkWin = function() {
 
 var showWinner = function() {
   if (gameOver == true) {
-    $("#gameContainer").hide();
-    $("#playContainer").hide();
-    $(".readyButton").hide();
+    $(".playTile").remove();
+    $(".gameTile").remove();
+    $(".readyButton").remove();
     $("<div class=endGame id=winner></div>").appendTo( $("#endGame"));
     //TODO add conditional to state which player wins.
     $("<div class=endGame id=scoreBoard></div>").appendTo( $("#endGame"));
@@ -326,7 +324,10 @@ var showWinner = function() {
         console.log("Clear Board");
         player1score = 0;
         player2score = 0;
-        turnNumber = 1;
+        turnNumber = 0;
+        $(".replayButton").hide()
+        $(".startButton").show()
+
     })
   }
   else {
