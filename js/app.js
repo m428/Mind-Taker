@@ -90,85 +90,86 @@ var recordPlayerInput = function() {
   var highlightTile = function() {
      $('.playTile').click(function() {
         var id = $(this).attr('id')
-        switch(id) {
-          case 'pTile1':
-          console.log("hit case 0")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(0);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
-          case 'pTile2':
-          console.log("hit case 1")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
+
+        var captureClicks = function() {
+          if (click == 1 && clicks < 7) {
+            playerClickArray.push(0);
+            clicks++;
+            console.log(playerClickArray);
+            if (clicks == 7) {
+              checkForMatch();
+            }
+          } else if (click == 2 && clicks < 7) {
               playerClickArray.push(1);
               clicks++;
               console.log(playerClickArray);
-                var click = 1;
               if (clicks == 7) {
                 checkForMatch();
               }
-            } else {
-                return;
-              } break;
-          case 'pTile3':
-          console.log("hit case 2")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
+          } else if (click == 3 && clicks < 7) {
               playerClickArray.push(2);
               clicks++;
               console.log(playerClickArray);
-                var click = 1;
               if (clicks == 7) {
                 checkForMatch();
               }
+          } else if (click == 4 && clicks < 7) {
+              playerClickArray.push(3);
+              clicks++;
+              console.log(playerClickArray);
+              if (clicks == 7) {
+                checkForMatch();
+                }
+            } else if (click == 5 && clicks < 7) {
+                playerClickArray.push(4);
+                clicks++;
+                console.log(playerClickArray);
+                if (clicks == 7) {
+                  checkForMatch();
+                  }
             } else {
                 return;
-              } break;
+            }
+        } //end captureClicks
+
+
+
+        switch(id) {
+          case 'pTile1':
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 1 //testing
+            captureClicks(click);
+              break;
+          case 'pTile2':
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 2 //testing
+            captureClicks(click);
+              break;
+          case 'pTile3':
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 3 //testing
+            captureClicks(click);
+              break;
           case 'pTile4':
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(3); // FIX THE PUSH NUMBER FOR THE ARRAY!!!
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 4 //testing
+            captureClicks(click);
+              break;
           case 'pTile5':
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(4);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 5 //testing
+            captureClicks(click);
+              break;
             }
           });
-        }// end highlightTile
+        } // end highlightTile
       highlightTile()
-}// end recordPlayerInput
+} // end recordPlayerInput
 
 
 //Generates random flash sequence and flashes game tiles
