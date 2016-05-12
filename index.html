@@ -11,36 +11,41 @@
   <title>Mind Taker</title>
 </head>
 <body>
-  <div class="container center" id=banner>
-      <h1>Mentok the Mind-Taker Memory Madness Game</h1>
-  </div>
-  <div class="container justify" id=instructions>
-    <p>In this game of mind taking, you and another player will battle it out to save your sanity by matching Mentok’s maniacal mind-taking patterns. Each correct match yields one point. Be the first to make it to five or have your mind taken!</p>
-  </div>
-  <div class="container center" id="console">
-    <p> Press START to begin and press READY to view the first sequence. </p>
-    <button type="button" class="btn btn-primary btn-lg startButton">START GAME</button>
-    <!-- <button type="button" class="btn btn-primary btn-lg">REPLAY</button> -->
-  </div>
+  <div class="noGif">
 
-  <div class="container center" id="scoreBoard">
-    <div class="row">
-      <div class="col-xs-6" id="player1">
-        <!-- TODO insert score tracker here with jquery -->
+    <div class="gif">
+      <div class="container center" id=banner>
+          <h1>Mentok the Mind-Taker Memory Madness Game</h1>
       </div>
-      <div class="col-xs-6" id="player2">
-        <!-- TODO insert score tracker here with jquery -->
+      <div class="container justify" id=instructions>
+        <p>In this game of mind taking, you and another player will battle it out to save your sanity by matching Mentok’s maniacal mind-taking patterns. Each correct match yields one point. Be the first to make it to five or have your mind taken!</p>
       </div>
-    </div>
-  </div>
+      <div class="container center" id="console">
+        <p> Press START to begin and press READY to view the first sequence. </p>
+        <button type="button" class="btn btn-primary btn-lg startButton">START GAME</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg">REPLAY</button> -->
+      </div>
 
-  <div class="container center" id="gameContainer">
-    <!-- Five gameTile divs will be created inside gameContainer with jQuery when start button is clicked -->
-  </div>
-  <div class="container center" id="playContainer">
-    <!-- Five playTile divs will be created inside playContainer with jQuery when start button is clicked -->
-  </div>
-  <div class="container center" id="endGame">
-  </div>
+      <div class="container center" id="scoreBoard">
+        <div class="row">
+          <div class="col-xs-6" id="player1">
+            <!-- TODO insert score tracker here with jquery -->
+          </div>
+          <div class="col-xs-6" id="player2">
+            <!-- TODO insert score tracker here with jquery -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container center" id="gameContainer">
+        <!-- Five gameTile divs will be created inside gameContainer with jQuery when start button is clicked -->
+      </div>
+      <div class="container center" id="playContainer">
+        <!-- Five playTile divs will be created inside playContainer with jQuery when start button is clicked -->
+      </div>
+      <div class="container center" id="endGame">
+      </div>
+    </div><!-- end noGif -->
+  </div><!-- end border gif -->
 </body>
 </html>

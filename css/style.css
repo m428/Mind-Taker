@@ -5,6 +5,40 @@ Cream: #F7EAC8
 Yellow: #E8B71A
 RED: #DB1530*/
 
+body, html {
+  /*background-image: url('https://media.giphy.com/media/ReayYep6P8fm/giphy.gif');*/
+  /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');*/
+  background-color: black;
+  background-size: cover;
+  height: 100%
+}
+
+/*div.noGif {
+    height: 100%
+}*/
+
+div.noGif {
+  background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
+  background-repeat: no-repeat;;
+  background-size: cover;
+  /*height: 100%*/
+  background-color: black;
+  opacity: 0.6;
+  margin: 25px;
+  height: 100%;
+  border-radius: 50px;
+}
+
+div.gif h1 {
+font-weight: bold;
+color: white;
+margin: 5%
+}
+
+div.gif p {
+font-weight: bold;
+color: white;
+}
 
 /* basic styles */
 .center {
