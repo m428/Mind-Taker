@@ -3,13 +3,8 @@ window.onload = function () {
       makeTiles();
       makeReadyButton();
       runGame();
-  })
-
-  $('button.replayButton').click(function() {
-      console.log("Clear Board");
-      player1score = 0;
-      player2score = 0;
-      turnNumber = 1;
+      // TODO call scoreBoard
+      scoreBoard();
   })
 };
 
@@ -43,6 +38,15 @@ var makeTiles = function() {
   $("<div class=playTile id=pTile5 value=4></div>").appendTo( $("#playContainer"));
   console.log("Made player tiles");
 }
+
+//Create scoreboard and display initial score of 0
+var scoreBoard = function() {
+  $("<div class=score id=p1></div>").appendTo( $("#player1"));
+  $("<div class=score id=p2></div>").appendTo( $("#player2"));
+  document.getElementById("p1").innerHTML = player1score;
+  document.getElementById("p2").innerHTML = player2score;
+}
+
 
 var makeReadyButton = function() {
   $("<button class=readyButton>READY</button>").appendTo( $("#console")); //Adds a ready button to console
@@ -236,8 +240,8 @@ var makeFlashPattern = function() {
             i = 0;
             function callFlash() {
               flashFunctions[i++]();
-                if (i < flashFunctions.length) setTimeout(callFlash, 1000);
-              } window.setTimeout(callFlash, 1000);
+                if (i < flashFunctions.length) setTimeout(callFlash, 200);
+              } window.setTimeout(callFlash, 200);
           } //End flashThoseGameTiles
   flashThoseGameTiles();
 } //End makeFlashPattern
@@ -270,6 +274,7 @@ var checkForMatch = function() {
 var keepScore = function(match, turn) {
   if (match == true && turn == -1) { //Not sure why this is not using match set to true.
     player1score = player1score + 1;
+    document.getElementById("p1").innerHTML = player1score;
     //TODO remove alerts and add information currently displayed in alerts (for testing purposes) to frontend
     alert(" player 1 score is now " +  player1score);
     alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
@@ -277,6 +282,7 @@ var keepScore = function(match, turn) {
     checkWin();
   } else if (match == true && turn == 1) { //Not sure why this is not using match set to true.
     player2score = player2score + 1;
+    document.getElementById("p2").innerHTML = player2score;
     //TODO remove alerts and display with frontend
     alert(" player 2 score is now " +  player2score);
     alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
@@ -292,18 +298,42 @@ var keepScore = function(match, turn) {
 
 //Check if either player has scored 5 times and declares a winner
 var checkWin = function() {
-  if (player1score == 5) {
-    console.log("Player 1 wins!");
+  if (player1score == 2) {
+    // console.log("Player 1 wins!");
     gameOver = true;
+    showWinner();
     return gameOver;
-  } else if (player2score == 5) {
-    console.log("Player 2 wins!");
+  } else if (player2score == 2) {
+    // console.log("Player 2 wins!");
     gameOver = true;
+      showWinner();
     return gameOver;
   } else {
-    return gameOver; //Need to add in a loop function here.
+    return gameOver;
   }
-}
-//Call function below to reset game for next round
+} // end checkWin
+
+var showWinner = function() {
+  if (gameOver == true) {
+    $("#gameContainer").hide();
+    $("#playContainer").hide();
+    $(".readyButton").hide();
+    $("<div class=endGame id=winner></div>").appendTo( $("#endGame"));
+    //TODO add conditional to state which player wins.
+    $("<div class=endGame id=scoreBoard></div>").appendTo( $("#endGame"));
+    $("<button class=replayButton>PLAY AGAIN</button>").appendTo( $("#console")); //Adds a ready button to console
+    $('button.replayButton').click(function() {
+        console.log("Clear Board");
+        player1score = 0;
+        player2score = 0;
+        turnNumber = 1;
+    })
+  }
+  else {
+    console.log("hit announce Winner")
+  }
+} // end announceWinner
+
+//TODO Call function below to reset game for next round
   activateReadyButton();
 } //End of runGame function
