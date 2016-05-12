@@ -1,3 +1,10 @@
+/*Color Palette
+Green: #1FDA9A
+Blue: #28ABFF
+Cream: #F7EAC8
+Yellow: #E8B71A
+RED: #DB1530*/
+
 
 /* basic styles */
 .center {
@@ -20,8 +27,27 @@
 .playTile {
   /*border-radius: 100%;*/
   display: inline-block;
-  background-color: blue;
   margin: 20px;
   width: 50px;
   height: 50px;
+}
+
+#pTile1 {
+  background-color: #1FDA9A;
+}
+
+#pTile2 {
+  background-color: #28ABFF;
+}
+
+#pTile3 {
+  background-color: #F7EAC8;
+}
+
+#pTile4 {
+  background-color:  #E8B71A;
+}
+
+#pTile5 {
+  background-color: #DB1530;
 }
