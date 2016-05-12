@@ -17,6 +17,7 @@ var turn = 1;
 var match = false;
 var clicks = 0;
 var turnNumber = 0;
+// var click = 1;
 ////////////////////////////////////////////////////////////////////////////////
 
 // function makeTiles() Makes 5 blank tiles
@@ -76,117 +77,99 @@ var activateReadyButton = function() {
 }
 
 //Adds click event listeners to playTiles and records each click in an array.
-//TODO refactor repetative code
+var recordPlayerInput = function() {
 
-//
-//
-// var highlightTile = function() {
-//   $('#pTile1').css('background-color','green')
-//   if
-//   else if
-//   else if
-//   else if
-//   else if
-//   else
+  var revertTile = function() {
+    $('#pTile1').css('background-color','#1FDA9A');
+    $('#pTile2').css('background-color','#28ABFF');
+    $('#pTile3').css('background-color','#F7EAC8');
+    $('#pTile4').css('background-color','#E8B71A');
+    $('#pTile5').css('background-color','#DB1530');
+  } // end revertTile
 
-// }
-
-// var highlightTile = function() {
-//   switch(true) {
-//     case click1 = true:
-//       $('#pTile1').css('background-color','green');
-//       click1 = false;
-//     case click2 = false:
-//       $('#pTile2').css('background-color','green');
-//         click2 = false;
-//     case click3 = true:
-//         $('#pTile3').css('background-color','green');
-//     case click4 = true:
-//         $('#pTile4').css('background-color','green');
-//     case click5 = true:
-//       $('#pTile5').css('background-color','green');
-//     case click6 = true:
-//       $('#pTile6').css('background-color','green');
-//     case click7 = true:
-//       $('#pTile7').css('background-color','green');
-//     }
-//
-// }
-
-
-
-
-var recordPlayerInput = function () {
-
-      $('#pTile1').click(function() { //Adds click events to playTile 1
-        var click1 = true
-        $('#pTile1').css('background-color','red')
-       setTimeout(highlightTile, 200)
-
-
-        if (clicks < 7) {
-          playerClickArray.push(0);
-          clicks++;
-          console.log(playerClickArray);
-          if (clicks == 7) {
-            checkForMatch();
-          }
-        } else {
-          return;
-          }
-      });
-      $('#pTile2').click(function() { //Adds click events to playTile 2
-        var click1 = true
-        $('#pTile2').css('background-color','red')
-       setTimeout(highlightTile, 200)
-        if (clicks < 7) {
-          playerClickArray.push(1);
-          clicks++;
-          console.log(playerClickArray);
-          if (clicks == 7) {
-            checkForMatch();
-          }
-        } else {
-            return;
-        }
-      });
-      $('#pTile3').click(function() { //Adds click events to playTile 3
-        if (clicks < 7) {
-          playerClickArray.push(2);
-          clicks++;
-          console.log(playerClickArray);
-          if (clicks == 7) {
-            checkForMatch();
-          }
-        } else {
-            return;
-        }
-      });
-      $('#pTile4').click(function() { //Adds click events to playTile 4
-        if (clicks < 7) {
-          playerClickArray.push(3);
-          clicks++;
-          console.log(playerClickArray);
-          if (clicks == 7) {
-            checkForMatch();
-          }
-        } else {
-            return;
-        }
-      });
-      $('#pTile5').click(function() { //Adds click events to playTile 5
-        if (clicks < 7) {
-          playerClickArray.push(4);
-          clicks++;
-          console.log(playerClickArray);
-          if (clicks == 7) {
-              checkForMatch();
+  var highlightTile = function() {
+     $('.playTile').click(function() {
+        var id = $(this).attr('id')
+        switch(id) {
+          case 'pTile1':
+          console.log("hit case 0")
+          $(this).css('background-color','gray');
+           setTimeout(revertTile, 200)
+            if (clicks < 7) {
+              playerClickArray.push(0);
+              clicks++;
+              console.log(playerClickArray);
+                var click = 1;
+              if (clicks == 7) {
+                checkForMatch();
+              }
+            } else {
+                return;
+              } break;
+          case 'pTile2':
+          console.log("hit case 1")
+          $(this).css('background-color','gray');
+           setTimeout(revertTile, 200)
+            if (clicks < 7) {
+              playerClickArray.push(1);
+              clicks++;
+              console.log(playerClickArray);
+                var click = 1;
+              if (clicks == 7) {
+                checkForMatch();
+              }
+            } else {
+                return;
+              } break;
+          case 'pTile3':
+          console.log("hit case 2")
+          $(this).css('background-color','gray');
+           setTimeout(revertTile, 200)
+            if (clicks < 7) {
+              playerClickArray.push(2);
+              clicks++;
+              console.log(playerClickArray);
+                var click = 1;
+              if (clicks == 7) {
+                checkForMatch();
+              }
+            } else {
+                return;
+              } break;
+          case 'pTile4':
+          $(this).css('background-color','gray');
+           setTimeout(revertTile, 200)
+            if (clicks < 7) {
+              playerClickArray.push(3); // FIX THE PUSH NUMBER FOR THE ARRAY!!!
+              clicks++;
+              console.log(playerClickArray);
+                var click = 1;
+              if (clicks == 7) {
+                checkForMatch();
+              }
+            } else {
+                return;
+              } break;
+          case 'pTile5':
+          $(this).css('background-color','gray');
+           setTimeout(revertTile, 200)
+            if (clicks < 7) {
+              playerClickArray.push(4);
+              clicks++;
+              console.log(playerClickArray);
+                var click = 1;
+              if (clicks == 7) {
+                checkForMatch();
+              }
+            } else {
+                return;
+              } break;
             }
-          } else {
-              return;
-          }
-      });
-}
+          });
+        }// end highlightTile
+      highlightTile()
+}// end recordPlayerInput
+
 
 //Generates random flash sequence and flashes game tiles
 var makeFlashPattern = function() {
@@ -345,19 +328,20 @@ var keepScore = function(match, turn) {
 var checkWin = function() {
   if (player1score == 2) {
     gameOver = true;
-    showWinner();
+    declareWinner();
     return gameOver;
   } else if (player2score == 2) {
     gameOver = true;
-      showWinner();
+      declareWinner();
     return gameOver;
   } else {
     return gameOver;
   }
 } // end checkWin
 
-var showWinner = function() {
+var declareWinner = function() {
   if (gameOver == true) {
+    $('.score').remove();
     $(".playTile").remove();
     $(".gameTile").remove();
     $(".readyButton").remove();
@@ -378,7 +362,7 @@ var showWinner = function() {
   else {
     console.log("hit announce Winner")
   }
-} // end announceWinner
+} // end declareWinner
 
 //TODO Call function below to reset game for next round
   activateReadyButton();
