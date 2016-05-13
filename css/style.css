@@ -25,17 +25,29 @@ div.gifBackground {
   /*border: 5px solid rgba(255, 255, 255, 0.1);*/
   /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
   border-radius: 50px;
+  color: #ffffff;
 }
 
-div.noGif h1 {
+/*div.gifBackground h1 {
     font-weight: bold;
     color: #ffffff;
 }
 
-div.noGif p {
+div.gifBackground p {
     font-weight: bold;
     color: #ffffff;
+}*/
+
+#banner {
+  margin-top: 5%;
 }
+/*
+.shade {
+  background-color: black;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50px;
+}*/
 
 /* basic styles */
 .center {

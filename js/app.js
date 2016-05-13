@@ -4,7 +4,15 @@ window.onload = function () {
       makeReadyButton();
       runGame();
       scoreBoard();
-      $(".startButton").hide()
+      $(".startButton").hide();
+      // $(".gifBackground").hide();
+      $(".gifBackground").css("background", "url(https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif)")
+      $(".gifBackground").css("color", "black")
+
+      // $("<div class=container shade></div>").appendTo( $("body"));
+
+
+      // $(".shade").show();
   })
 };
 
