@@ -27,7 +27,7 @@ div.gifBackground h1 {
 }
 
 div.gifBackground h5 {
-  background-color: black;
+  background-color: gray;
   color: white;
   padding: 10px;
 }
@@ -39,8 +39,9 @@ div.gifBackground h5 {
   border-left: 2px dotted yellow;
   border-top: 2px solid blue;
   border-bottom: 2px solid purple;
-  border-radius: 20px;
+  /*border-radius: 20px;*/
   padding: 30px;
+  /*opacity: 0.5*/
 
 }
 
@@ -50,7 +51,32 @@ div.gifBackground h5 {
     /*margin-top: 5%;*/
 }
 
-.instructions {}
+
+@keyframes animateBorder {
+  to {
+    outline-color: #EA3556;
+    box-shadow: 0 0 0 2px yellow;
+  }
+}
+
+
+.startButton{
+  outline: 6px dashed yellow;
+  box-shadow: 0 0 0 2px #EA3556;
+  animation: 1s animateBorder infinite;
+}
+
+.instructions {
+  outline: 6px dashed yellow;
+  box-shadow: 0 0 0 20px #EA3556;
+  /*animation: 1s animateBorder infinite;*/
+
+}
+
+.instructions:hover{
+    outline-color: #3CFDD3;
+    box-shadow: 0 0 0 20px #006DB5;
+}
 
 .gameTile {
   display: inline-block;
