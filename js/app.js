@@ -1,5 +1,8 @@
 window.onload = function () {
   $('button.startButton').click(function() {
+    var audio = $("#startSound")[0];
+
+      audio.play();
       makeTiles();
       makeReadyButton();
       runGame();
@@ -14,6 +17,10 @@ window.onload = function () {
 
   })
 };
+
+// $(".startButton").click(function() {
+//     audio.play();
+// });​
 
 //////////////////////////////Global Variables//////////////////////////////////
 var playerClickArray = [];
@@ -69,6 +76,10 @@ var runGame = function() {
 //////////////// EVERYTHING BELOW IS NOW INSIDE runGame ////////////////////////
 var activateReadyButton = function() {
   $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
+//  TODO play audio on first click only
+    var audio = $("#readySound")[0];
+      audio.play();
+
       makeArrayOfIndices = [];
       playerClickArray = [];
       clicks = 0;
