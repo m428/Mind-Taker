@@ -7,37 +7,34 @@ RED: #DB1530*/
 
 body, html {
   /*background-image: url('https://media.giphy.com/media/ReayYep6P8fm/giphy.gif');*/
-  /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');*/
+  /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
+  background-size: cover;*/
+  height: 100%;
+  border: 10px solid black;
   background-color: black;
-  background-size: cover;
-  height: 100%
+  /*border-radius: 50px;*/
 }
 
-/*div.noGif {
-    height: 100%
-}*/
-
-div.noGif {
+div.gifBackground {
   background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
-  background-repeat: no-repeat;;
   background-size: cover;
-  /*height: 100%*/
-  background-color: black;
-  opacity: 0.6;
-  margin: 25px;
   height: 100%;
+  /*background-color: rgba(0, 0, 0, .5);
+  background-size: cover;*/
+  /*border: 25px solid black;*/
+  /*border: 5px solid rgba(255, 255, 255, 0.1);*/
+  /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
   border-radius: 50px;
 }
 
-div.gif h1 {
-font-weight: bold;
-color: white;
-margin: 5%
+div.noGif h1 {
+    font-weight: bold;
+    color: #ffffff;
 }
 
-div.gif p {
-font-weight: bold;
-color: white;
+div.noGif p {
+    font-weight: bold;
+    color: #ffffff;
 }
 
 /* basic styles */
