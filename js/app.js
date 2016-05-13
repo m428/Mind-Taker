@@ -4,7 +4,14 @@ window.onload = function () {
       makeReadyButton();
       runGame();
       scoreBoard();
-      $(".startButton").hide()
+      $(".startButton").hide();
+      $(".gifBackground").css("background", "url(https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif)")
+      $(".gifBackground").css("color", "black")
+      $(".content").css("background", "transparent")
+      $(".content").css("border", "none")
+      $("<h5 class=instructions>In this game of mind taking, you and another player will battle it out to save your sanity by matching Mentok’s maniacal mind-taking patterns. Each correct match yields one point. Be the first to make it to five or have your mind taken! Press START to begin and press READY to view the first sequence.</h5>").appendTo( $("#banner"));
+      $(".content").css("margin-top", "0")
+
   })
 };
 
@@ -90,85 +97,85 @@ var recordPlayerInput = function() {
   var highlightTile = function() {
      $('.playTile').click(function() {
         var id = $(this).attr('id')
+
+        //Capture player input and store clicks as an array for comparison against generated game array
+        var captureClicks = function() {
+          switch(click) {
+            case 1:
+              if (clicks < 7) {
+                playerClickArray.push(0);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 2:
+              if (clicks < 7) {
+                playerClickArray.push(1);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 3:
+              if (clicks < 7) {
+                playerClickArray.push(2);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 4:
+              if (clicks < 7) {
+                playerClickArray.push(3);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+            case 5:
+              if (clicks < 7) {
+                playerClickArray.push(4);
+                clicks++;
+                console.log(playerClickArray);
+              } break;
+          } //end switch
+          //Check for match if player has clicked 7 tiles
+          if (clicks == 7) {
+            checkForMatch();
+          } else {
+            return;
+          }
+        } //end captureClicks
+
         switch(id) {
           case 'pTile1':
-          console.log("hit case 0")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(0);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 1 //testing
+            captureClicks(click);
+              break;
           case 'pTile2':
-          console.log("hit case 1")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(1);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 2 //testing
+            captureClicks(click);
+              break;
           case 'pTile3':
-          console.log("hit case 2")
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(2);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 3 //testing
+            captureClicks(click);
+              break;
           case 'pTile4':
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(3); // FIX THE PUSH NUMBER FOR THE ARRAY!!!
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 4 //testing
+            captureClicks(click);
+              break;
           case 'pTile5':
-          $(this).css('background-color','gray');
-           setTimeout(revertTile, 200)
-            if (clicks < 7) {
-              playerClickArray.push(4);
-              clicks++;
-              console.log(playerClickArray);
-                var click = 1;
-              if (clicks == 7) {
-                checkForMatch();
-              }
-            } else {
-                return;
-              } break;
+            $(this).css('background-color','gray');
+            setTimeout(revertTile, 200)
+            var click = 5 //testing
+            captureClicks(click);
+              break;
             }
           });
-        }// end highlightTile
+        } // end highlightTile
       highlightTile()
-}// end recordPlayerInput
+} // end recordPlayerInput
 
 
 //Generates random flash sequence and flashes game tiles

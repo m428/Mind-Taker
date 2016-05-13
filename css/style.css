@@ -5,31 +5,70 @@ Cream: #F7EAC8
 Yellow: #E8B71A
 RED: #DB1530*/
 
-
-/* basic styles */
-.center {
-  text-align: center;
+body, html {
+  height: 100%;
+  border: 15px solid black;
+  background-color: black;
 }
 
-.justify {
-  text-align: justify;
+div.gifBackground {
+  background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
+  background-size: cover;
+  height: 100%;
+  /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
+  border-radius: 50px;
+  color: #ffffff;
+  border: 2px dotted white;
 }
+
+div.gifBackground h1 {
+  /*margin-top: 5%;*/
+  /*padding-bottom: 15px;*/
+}
+
+div.gifBackground h5 {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.content {
+  background-color: black;
+  margin-top: 15%;
+  border-right: 2px dotted yellow;
+  border-left: 2px dotted yellow;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid purple;
+  border-radius: 20px;
+  padding: 30px;
+
+}
+
+.container .container {
+    margin-left: -17px;
+    margin-right: -15px;
+    /*margin-top: 5%;*/
+}
+
+.instructions {}
 
 .gameTile {
-  /*border-radius: 100%;*/
   display: inline-block;
   background-color: gray;
   margin: 20px;
-  width: 50px;
-  height: 50px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
 .playTile {
-  /*border-radius: 100%;*/
   display: inline-block;
   margin: 20px;
-  width: 50px;
-  height: 50px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
 #pTile1 {
@@ -50,4 +89,13 @@ RED: #DB1530*/
 
 #pTile5 {
   background-color: #DB1530;
+}
+
+/*///// basic styles ///// */
+.center {
+  text-align: center;
+}
+
+.justify {
+  text-align: justify;
 }
