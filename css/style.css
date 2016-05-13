@@ -6,73 +6,69 @@ Yellow: #E8B71A
 RED: #DB1530*/
 
 body, html {
-  /*background-image: url('https://media.giphy.com/media/ReayYep6P8fm/giphy.gif');*/
-  /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
-  background-size: cover;*/
   height: 100%;
-  border: 10px solid black;
+  border: 15px solid black;
   background-color: black;
-  /*border-radius: 50px;*/
 }
 
 div.gifBackground {
   background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');
   background-size: cover;
   height: 100%;
-  /*background-color: rgba(0, 0, 0, .5);
-  background-size: cover;*/
-  /*border: 25px solid black;*/
-  /*border: 5px solid rgba(255, 255, 255, 0.1);*/
   /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
   border-radius: 50px;
   color: #ffffff;
+  border: 2px dotted white;
 }
 
-/*div.gifBackground h1 {
-    font-weight: bold;
-    color: #ffffff;
+div.gifBackground h1 {
+  /*margin-top: 5%;*/
+  /*padding-bottom: 15px;*/
 }
 
-div.gifBackground p {
-    font-weight: bold;
-    color: #ffffff;
-}*/
-
-#banner {
-  margin-top: 5%;
-}
-/*
-.shade {
+div.gifBackground h5 {
   background-color: black;
-  height: 100%;
-  background-size: cover;
-  border-radius: 50px;
-}*/
-
-/* basic styles */
-.center {
-  text-align: center;
+  color: white;
+  padding: 10px;
 }
 
-.justify {
-  text-align: justify;
+.content {
+  background-color: black;
+  margin-top: 15%;
+  border-right: 2px dotted yellow;
+  border-left: 2px dotted yellow;
+  border-top: 2px solid blue;
+  border-bottom: 2px solid purple;
+  border-radius: 20px;
+  padding: 30px;
+
 }
+
+.container .container {
+    margin-left: -17px;
+    margin-right: -15px;
+    /*margin-top: 5%;*/
+}
+
+.instructions {}
 
 .gameTile {
-  /*border-radius: 100%;*/
   display: inline-block;
   background-color: gray;
   margin: 20px;
-  width: 50px;
-  height: 50px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
 .playTile {
-  /*border-radius: 100%;*/
   display: inline-block;
   margin: 20px;
-  width: 50px;
-  height: 50px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
 }
 
 #pTile1 {
@@ -93,4 +89,13 @@ div.gifBackground p {
 
 #pTile5 {
   background-color: #DB1530;
+}
+
+/*///// basic styles ///// */
+.center {
+  text-align: center;
+}
+
+.justify {
+  text-align: justify;
 }

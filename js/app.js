@@ -5,14 +5,13 @@ window.onload = function () {
       runGame();
       scoreBoard();
       $(".startButton").hide();
-      // $(".gifBackground").hide();
       $(".gifBackground").css("background", "url(https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif)")
       $(".gifBackground").css("color", "black")
+      $(".content").css("background", "transparent")
+      $(".content").css("border", "none")
+      $("<h5 class=instructions>In this game of mind taking, you and another player will battle it out to save your sanity by matching Mentok’s maniacal mind-taking patterns. Each correct match yields one point. Be the first to make it to five or have your mind taken! Press START to begin and press READY to view the first sequence.</h5>").appendTo( $("#banner"));
+      $(".content").css("margin-top", "0")
 
-      // $("<div class=container shade></div>").appendTo( $("body"));
-
-
-      // $(".shade").show();
   })
 };
 
