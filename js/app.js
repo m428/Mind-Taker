@@ -8,6 +8,8 @@ window.onload = function () {
       runGame();
       scoreBoard();
       $(".startButton").hide();
+      $(".instructions").hide();
+
   })
 };
 
@@ -71,6 +73,7 @@ var runGame = function() {
 var activateReadyButton = function() {
   $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
 //  TODO play audio on first click only
+  $('button.readyButton').hide();
     var audio = $("#readySound")[0];
       audio.play();
 
@@ -142,6 +145,8 @@ var recordPlayerInput = function() {
           } else {
             return;
           }
+          $('button.readyButton').show();
+
         } //end captureClicks
 
         switch(id) {

@@ -65,6 +65,9 @@ animation: colorChange 5s infinite;
     box-shadow: 0 0 0 20px #000000	;
 }
 
+#console {
+  height: 40px;
+}
 
 #scoreBoard {
   font-family: 'Allerta Stencil', sans-serif;
