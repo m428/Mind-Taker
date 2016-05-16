@@ -1,91 +1,37 @@
-/*Color Palette
-Green: #1FDA9A
-Blue: #28ABFF
-Cream: #F7EAC8
-Yellow: #E8B71A
-RED: #DB1530*/
-
 @import url(https://fonts.googleapis.com/css?family=Candal|Russo+One|Fredoka+One|Archivo+Black|Didact+Gothic|Changa+One|Doppio+One|Unica+One|Allerta+Stencil|Metrophobic|Monoton|Bowlby+One+SC|Gafata|Sniglet|Share+Tech);
 
 body, html {
   height: 100%;
-  /*border: 15px solid black;*/
-  /*background-color: black;*/
-  /*background-image: url('http://cuzimage.com/images/wood-grain-clip-art-clipart-and-vector-collection.jpg');*/
   background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');
-padding:20px;;
-
+  padding:20px;
+  font-family: 'Doppio One', sans-serif;
 }
 
 div.gifBackground {
-  /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');*/
-  /*background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');*/
-
   background-size: cover;
-  background-color: black;
   height: 100%;
-
-  /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
-  /*border-radius: 50px;*/
-  /*border-radius: 55% / 10%;
-  border-radius: 10% / 55%;*/
-
   margin-top: 10px;
   margin-bottom: 10px;
-
   color: #ffffff;
   /*border: 2px dotted white;*/
 }
 
-div.gifBackground h1 {
-  /*margin-top: 5%;*/
-  /*padding-bottom: 15px;*/
-}
-
-div.gifBackground h5 {
-  background-color: gray;
-  color: white;
-  padding: 10px;
-}
-
 .content {
-  /*background-color: black;*/
-  margin-top: 15%;
-  /*border-right: 2px dotted yellow;
-  border-left: 2px dotted yellow;
-  border-top: 2px solid blue;
-  border-bottom: 2px solid purple;*/
-  /*border-radius: 20px;*/
+  margin-top: 5%;
   padding: 30px;
-  /*opacity: 0.5*/
-
 }
 
 #banner h1 {
-/*font-family: 'Bowlby One SC', cursive;*/
 font-size: 60pt;
-/*font-family: 'Candal', sans-serif;*/
 font-family: 'Russo One', sans-serif;
-/*font-family: 'Fredoka One', cursive;*/
-/*font-family: 'Archivo Black', sans-serif;*/
-/*font-family: 'Didact Gothic', sans-serif;*/
-/*font-family: 'Changa One', cursive;*/
-/*font-family: 'Doppio One', sans-serif;*/
-/*font-family: 'Unica One', cursive;*/
-/*font-family: 'Allerta Stencil', sans-serif;*/
-/*font-family: 'Metrophobic', sans-serif;*/
-/*font-family: 'Monoton', cursive;*/
 animation: colorChange 5s infinite;
 }
 
 @keyframes colorChange {
   0% { color: hsl(0, 0%, 100%); }
-  /*0% { color: hsl(84, 100%, 50%); }*/
-  /*25% { color: hsl(300, 100%, 50%); }*/
-  50% { color: hsl(108, 100%, 50%); }
-  /*50% { color: hsl(0, 100%, 50%); }*/
-  /*75% { color: hsl(60, 100%, 50%); }*/
-  /*100% { color: hsl(312, 100%, 50%); }*/
+  25% { color: hsl(108, 100%, 50%); }
+  50% { color: hsl(0, 0%, 100%); }
+  75% { color: hsl(300, 100%, 50%); }
   100% { color: hsl(0, 0%, 100%); }
 
 }
@@ -93,9 +39,8 @@ animation: colorChange 5s infinite;
 .container .container {
     margin-left: -17px;
     margin-right: -15px;
-    /*margin-top: 5%;*/
+    background-color: black;
 }
-
 
 /*@keyframes animateBorder {
   to {
@@ -115,13 +60,20 @@ animation: colorChange 5s infinite;
   outline: 6px dashed #000000	;
   box-shadow: 0 0 0 20px #000000	;
   /*animation: 1s animateBorder infinite;*/
-
+  font-size: 14pt;
 }
 
 .instructions:hover{
     outline-color: #33FF00;
     box-shadow: 0 0 0 20px #000000	;
 }
+
+
+#scoreBoard {
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 20pt;
+}
+
 
 .gameTile {
   display: inline-block;
