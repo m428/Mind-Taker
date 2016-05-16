@@ -69,6 +69,11 @@ animation: colorChange 5s infinite;
   height: 40px;
 }
 
+.motivator {
+  font-family: 'Doppio One', sans-serif;
+font-size: 24pt;
+}
+
 #scoreBoard {
   font-family: 'Allerta Stencil', sans-serif;
   font-size: 20pt;

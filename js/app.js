@@ -145,6 +145,7 @@ var recordPlayerInput = function() {
           } else {
             return;
           }
+          $(".motivator").remove();
           $('button.readyButton').show();
 
         } //end captureClicks
@@ -283,6 +284,8 @@ var makeFlashPattern = function() {
 var switchTiles = function() {
   $("#gameContainer").hide();
   $("#playContainer").show();
+  $("<div class=motivator>MAKE THE MATCH!</div>").appendTo("#console");
+  $("<div class=score id=p1></div>").appendTo( $("#player1"));
 }
         //Set timeout for multiple flash functions
         var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
