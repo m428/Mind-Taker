@@ -144,9 +144,6 @@ var recordPlayerInput = function() {
           } else {
             return;
           }
-          $(".motivator").remove();
-          $('button.readyButton').show();
-
         } //end captureClicks
 
         switch(id) {
@@ -275,8 +272,6 @@ var makeFlashPattern = function() {
                 var indexNum = makeArrayOfIndices[6];
                 var tile = gameTiles[indexNum]
                 $(tile).css('background-color','gray');
-
-// TODO add a function that says to try now with another timeout to show and hide the divs so it's not so immediate.
               }
             };
           } //End for loop
@@ -290,18 +285,12 @@ var makeFlashPattern = function() {
       }
   } // end playerTurn
 
-var switchTiles = function() {
-  $("#gameContainer").hide();
-  $("#playContainer").show();
-  // $("<div class=motivator>MAKE THE MATCH!</div>").appendTo("#console");
-  playerTurn();
-}
-
-
-
-
-
-
+  var switchTiles = function() {
+    $("#gameContainer").hide();
+    $("#playContainer").show();
+    // $("<div class=motivator>MAKE THE MATCH!</div>").appendTo("#console");
+    playerTurn();
+  }
         //Set timeout for multiple flash functions
         var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
             i = 0;
@@ -325,47 +314,41 @@ var checkForMatch = function() {
      }
    }
    if (match == false) {
-     alert("Mind taken! Try again!");
-     console.log(match);
      var match = false;
      turn = turn * -1
      keepScore(match, turn);
      $("#gameContainer").show();
      $("#playContainer").hide();
+     $(".motivator").remove();
+     $("<div class=result>MIND TAKEN!</div>").appendTo("#console");
    } else if (playerClickArray.length == makeArrayOfIndices.length) {
-     alert("We have a match!");
      match = true;
-     console.log(match);
-     turn = turn * -1 //take out of for loop
+     turn = turn * -1
      keepScore(match, turn);
      $("#gameContainer").show();
      $("#playContainer").hide();
+     $(".motivator").remove();
+     $("<div class=result>WE HAVE A MATCH!</div>").appendTo("#console");
    }
-}
+     function removeResult() {
+       $('button.readyButton').show();
+       $(".result").remove();
+     }
+setTimeout(removeResult, 1000);
+} // end checkForMatch
 
 //Track each players score
 var keepScore = function(match, turn) {
-  if (match == true && turn == -1) { //Not sure why this is not using match set to true.
+  if (match == true && turn == -1) {
     player1score = player1score + 1;
     document.getElementById("p1").innerHTML = player1score;
-    //TODO remove alerts and add information currently displayed in alerts (for testing purposes) to frontend
-    alert(" player 1 score is now " +  player1score);
-    alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
-    alert("Press READY for next turn");
     checkWin();
-  } else if (match == true && turn == 1) { //Not sure why this is not using match set to true.
+  } else if (match == true && turn == 1) {
     player2score = player2score + 1;
     document.getElementById("p2").innerHTML = player2score;
-    //TODO remove alerts and display with frontend
-    alert(" player 2 score is now " +  player2score);
-    alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
-    alert("Press READY for next turn");
     checkWin();
   } else if (match == false) {
-    //TODO remove alerts and display with frontend
-    alert("No points added");
-    alert("Player 1 score is currently " + player1score + " and Player 2 score is currently " + player2score);
-    alert("Press READY for next turn");
+    console.log("no winners yet")
   }
 }
 
@@ -408,7 +391,5 @@ var declareWinner = function() {
     console.log("hit announce Winner")
   }
 } // end declareWinner
-
-//TODO Call function below to reset game for next round
   activateReadyButton();
 } //End of runGame function
