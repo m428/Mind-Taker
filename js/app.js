@@ -280,12 +280,28 @@ var makeFlashPattern = function() {
               }
             };
           } //End for loop
+
+
+  var playerTurn = function() {
+    if (turn == 1) {
+      $("<div class=motivator>PLAYER 1 GO!</div>").appendTo("#console");
+      } else {
+        $("<div class=motivator>PLAYER 2 GO!</div>").appendTo("#console");
+      }
+  } // end playerTurn
+
 var switchTiles = function() {
   $("#gameContainer").hide();
   $("#playContainer").show();
-  $("<div class=motivator>MAKE THE MATCH!</div>").appendTo("#console");
-  $("<div class=score id=p1></div>").appendTo( $("#player1"));
+  // $("<div class=motivator>MAKE THE MATCH!</div>").appendTo("#console");
+  playerTurn();
 }
+
+
+
+
+
+
         //Set timeout for multiple flash functions
         var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
             i = 0;
