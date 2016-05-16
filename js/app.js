@@ -1,7 +1,6 @@
 window.onload = function () {
   $('button.startButton').click(function() {
     var audio = $("#startSound")[0];
-
       audio.play();
       makeTiles();
       makeReadyButton();
