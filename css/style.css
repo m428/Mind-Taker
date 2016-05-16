@@ -5,24 +5,26 @@ Cream: #F7EAC8
 Yellow: #E8B71A
 RED: #DB1530*/
 
+@import url(https://fonts.googleapis.com/css?family=Candal|Russo+One|Fredoka+One|Archivo+Black|Didact+Gothic|Changa+One|Doppio+One|Unica+One|Allerta+Stencil|Metrophobic|Monoton|Bowlby+One+SC|Gafata|Sniglet|Share+Tech);
+
 body, html {
   height: 100%;
   /*border: 15px solid black;*/
   background-color: black;
-  background-image: url('http://cuzimage.com/images/wood-grain-clip-art-clipart-and-vector-collection.jpg');
+  /*background-image: url('http://cuzimage.com/images/wood-grain-clip-art-clipart-and-vector-collection.jpg');*/
 
 }
 
 div.gifBackground {
   /*background-image: url('http://i682.photobucket.com/albums/vv182/nmrihmod/ColorBars_SotaFinal_256x256.gif');*/
-  /*background-image: url('http://cuzimage.com/images/wood-grain-clip-art-clipart-and-vector-collection.jpg');*/
+  background-image: url('http://divinoconvinilo.com/wp-content/uploads/2016/01/triangle-geometric-background.png');
   background-size: cover;
-  background-color: black;
+  /*background-color: black;*/
   height: 100%;
   /*border-radius: 60px; -moz-border-radius: 60px; -webkit-border-radius: 60px;*/
   /*border-radius: 50px;*/
-  border-radius: 55% / 10%;
-  border-radius: 10% / 55%;
+  /*border-radius: 55% / 10%;
+  border-radius: 10% / 55%;*/
 
   margin-top: 10px;
   margin-bottom: 10px;
@@ -55,6 +57,33 @@ div.gifBackground h5 {
 
 }
 
+#banner h1 {
+/*font-family: 'Bowlby One SC', cursive;*/
+font-size: 60pt;
+/*font-family: 'Candal', sans-serif;*/
+font-family: 'Russo One', sans-serif;
+/*font-family: 'Fredoka One', cursive;*/
+/*font-family: 'Archivo Black', sans-serif;*/
+/*font-family: 'Didact Gothic', sans-serif;*/
+/*font-family: 'Changa One', cursive;*/
+/*font-family: 'Doppio One', sans-serif;*/
+/*font-family: 'Unica One', cursive;*/
+/*font-family: 'Allerta Stencil', sans-serif;*/
+/*font-family: 'Metrophobic', sans-serif;*/
+/*font-family: 'Monoton', cursive;*/
+animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+  /*0% { color: hsl(0, 0%, 100%); }*/
+  0% { color: hsl(0, 100%, 50%); }
+  25% { color: hsl(192, 100%, 50%); }
+  /*50% { color: hsl(108, 100%, 50%); }*/
+  50% { color: hsl(0, 100%, 50%); }
+  75% { color: hsl(60, 100%, 50%); }
+  100% { color: hsl(0, 100%, 50%); }
+}
+
 .container .container {
     margin-left: -17px;
     margin-right: -15px;
@@ -71,8 +100,8 @@ div.gifBackground h5 {
 
 
 .startButton{
-  outline: 6px dashed yellow;
-  box-shadow: 0 0 0 2px #EA3556;
+  /*outline: 6px dashed yellow;
+  box-shadow: 0 0 0 2px #EA3556;*/
   /*animation: 1s animateBorder infinite;*/
 }
 

@@ -52,6 +52,7 @@ var makeTiles = function() {
   // TODO remove last div and change 5 to 4 when generating index array
   $("<div class=playTile id=pTile5 value=4></div>").appendTo( $("#playContainer"));
   console.log("Made player tiles");
+  $("#playContainer").hide();
 }
 
 //Create scoreboard and display initial score of 0
@@ -96,7 +97,6 @@ var activateReadyButton = function() {
 
 //Adds click event listeners to playTiles and records each click in an array.
 var recordPlayerInput = function() {
-
   var revertTile = function() {
     $('#pTile1').css('background-color','#1FDA9A');
     $('#pTile2').css('background-color','#28ABFF');
@@ -277,12 +277,17 @@ var makeFlashPattern = function() {
                 var indexNum = makeArrayOfIndices[6];
                 var tile = gameTiles[indexNum]
                 $(tile).css('background-color','gray');
+
+// TODO add a function that says to try now with another timeout to show and hide the divs so it's not so immediate.
               }
             };
           } //End for loop
-
+var switchTiles = function() {
+  $("#gameContainer").hide();
+  $("#playContainer").show();
+}
         //Set timeout for multiple flash functions
-        var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7]
+        var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
             i = 0;
             function callFlash() {
               flashFunctions[i++]();
@@ -298,6 +303,8 @@ var checkForMatch = function() {
   for (var i = 0; i < 7; i++) {
     if (playerClickArray[i] == undefined || playerClickArray[i] != makeArrayOfIndices[i]) {
        match = false;
+       $("#gameContainer").show();
+       $("#playContainer").hide();
        break;
      }
    }
@@ -307,12 +314,16 @@ var checkForMatch = function() {
      var match = false;
      turn = turn * -1
      keepScore(match, turn);
+     $("#gameContainer").show();
+     $("#playContainer").hide();
    } else if (playerClickArray.length == makeArrayOfIndices.length) {
      alert("We have a match!");
      match = true;
      console.log(match);
      turn = turn * -1 //take out of for loop
      keepScore(match, turn);
+     $("#gameContainer").show();
+     $("#playContainer").hide();
    }
 }
 
