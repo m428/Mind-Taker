@@ -38,36 +38,17 @@ animation: colorChange 10s infinite;
   100% { color: hsl(0, 0%, 100%); }
 }
 
-/*@keyframes animateBorder {
-  to {
-    outline-color: #EA3556;
-    box-shadow: 0 0 0 2px yellow;
-  }
-}*/
+
 
 .btn {
   background-color: #33FF00;
-  /*border-radius: 0px;*/
+  /*border-radius: 50px;*/
   color: #000000
 }
 
 .btn:hover {
   background-color: #FF00FF;
 }
-
-/*.btn:focus {
-  background-color: #FF00FF;
-}
-
-.btn:active {
-  background-color: #FF00FF;
-}
-
-.btn.active:focus {
-  background-color: #FF00FF;
-}*/
-
-
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
   background-color: #33FF00;
@@ -100,8 +81,54 @@ animation: colorChange 10s infinite;
 
 .motivator {
   font-family: 'Doppio One', sans-serif;
-font-size: 24pt;
+  font-size: 24pt;
 }
+
+#noMatch {
+  font-family: 'Doppio One', sans-serif;
+  font-size: 24pt;
+
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: animateNoMatch 0.8s infinite;
+}
+
+@keyframes animateNoMatch {
+  to {
+    font-size: 40pt;
+  }
+  0% { color: hsl(60, 100%, 50%); }
+  50% { color: hsl(0, 100%, 50%); }
+  100% { color: hsl(60, 100%, 50%); }
+}
+
+#match {
+  font-family: 'Doppio One', sans-serif;
+  font-size: 30pt;
+
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: animateMatch 0.8s infinite;
+}
+
+@keyframes animateMatch {
+  to {
+    font-size: 40pt;
+  }
+  0% { color: hsl(108, 100%, 50%); }
+  25% { color: hsl(300, 100%, 50%); }
+  50% { color: hsl(0, 100%, 50%); }
+  75% { color: hsl(60, 100%, 50%); }
+  100% { color: hsl(192, 100%, 50%); }
+}
+
+
+
+
 
 #scoreBoard {
   font-family: 'Allerta Stencil', sans-serif;
