@@ -363,8 +363,10 @@ setTimeout(declareWinner, 4000);
       $(".readyButton").remove();
         if (turn == -1) {
           console.log(turn);
+          // $("<div class=endGame>WINNER:</div>").appendTo( $("#gameContainer"));
           $("<div class=endGame id=winner>PLAYER 1 WINS!</div>").appendTo( $("#gameContainer"));
         } else {
+          // $("<div class=endGame>WINNER:</div>").appendTo( $("#gameContainer"));
           $("<div class=endGame id=winner>PLAYER 2 WINS!</div>").appendTo( $("#gameContainer"));
         }
       $("<button class=replayButton>PLAY AGAIN</button>").appendTo( $("#console")); //Adds a ready button to console

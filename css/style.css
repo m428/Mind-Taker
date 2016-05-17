@@ -195,6 +195,31 @@ animation: colorChange 10s infinite;
   background-color: #FF00FF;
 }
 
+.endGame {
+  font-family: 'Russo One', sans-serif;
+  font-size: 30pt;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: animateWinner 0.8s infinite;
+  padding: 0px;
+}
+
+
+@keyframes animateWinner {
+  0% { color: hsl(108, 100%, 50%); }
+  25% { color: hsl(300, 100%, 50%); }
+  50% { color: hsl(192, 100%, 50%); }
+  75% { color: hsl(0, 100%, 50%); }
+  100% { color: hsl(60, 100%, 50%); }
+}
+
+#winner {
+  margin-bottom: 20px;
+}
+
+
 /*///// basic styles ///// */
 .center {
   text-align: center;
