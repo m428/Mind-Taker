@@ -90,6 +90,26 @@ font-size: 24pt;
   min-height: 60px;
 }
 
+#gTile1 {
+  background-color: #00CCFF;
+}
+
+#gTile2 {
+  background-color: #FFFF00;
+}
+
+#gTile3 {
+  background-color: #33FF00;
+}
+
+#gTile4 {
+  background-color:  #FF0000;
+}
+
+#gTile5 {
+  background-color: #FF00FF;
+}
+
 .playTile {
   display: inline-block;
   margin: 20px;

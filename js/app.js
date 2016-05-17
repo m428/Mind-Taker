@@ -93,11 +93,11 @@ var activateReadyButton = function() {
 //Adds click event listeners to playTiles and records each click in an array.
 var recordPlayerInput = function() {
   var revertTile = function() {
-    $('#pTile1').css('background-color','#1FDA9A');
-    $('#pTile2').css('background-color','#28ABFF');
-    $('#pTile3').css('background-color','#F7EAC8');
-    $('#pTile4').css('background-color','#E8B71A');
-    $('#pTile5').css('background-color','#DB1530');
+    $('#pTile1').css('background-color','#00CCFF');
+    $('#pTile2').css('background-color','#FFFF00');
+    $('#pTile3').css('background-color','#33FF00');
+    $('#pTile4').css('background-color','#FF0000');
+    $('#pTile5').css('background-color','#FF00FF');
   } // end revertTile
 
   var highlightTile = function() {
