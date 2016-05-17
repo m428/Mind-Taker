@@ -27,7 +27,7 @@ div.gifBackground {
 #banner h1 {
 font-size: 60pt;
 font-family: 'Russo One', sans-serif;
-animation: colorChange 5s infinite;
+animation: colorChange 10s infinite;
 }
 
 @keyframes colorChange {

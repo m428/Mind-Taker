@@ -25,6 +25,7 @@ var turn = 1;
 var match = false;
 var clicks = 0;
 var turnNumber = 0;
+  var f = 0
 // var click = 1;
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -193,88 +194,206 @@ var makeFlashPattern = function() {
         }
     var flashThoseGameTiles = function() {
       //TODO refactor repetative code
-      for (var i = 0; i < 7; i++) {
-        console.log(i)
         var gameTiles = document.getElementsByClassName('gameTile');
-            if (i == 1) {
-              var flash1 = function() {
-                var indexNum = makeArrayOfIndices[0];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear1 = function() {
-                var indexNum = makeArrayOfIndices[0];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else if (i == 2) {
-              var flash2 = function() {
-                var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear2 = function() {
-                var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else if (i == 3) {
-              var flash3 = function() {
-                var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear3 = function() {
-                var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else if (i == 4) {
-              var flash4 = function() {
-                var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear4 = function() {
-                var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else if (i == 5) {
-              var flash5 = function() {
-                var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear5 = function() {
-                var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else if (i == 6) {
-              var flash6 = function() {
-                var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear6 = function() {
-                var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            } else {
-              var flash7 = function() {
-                var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','blue');
-              }
-              var clear7 = function() {
-                var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-              }
-            };
-          } //End for loop
+
+
+      var t = 0;
+
+function flash() {
+  // console.log("hit flash")
+  console.log("t = " + t)
+  switch(t) {
+
+
+    case 0:
+    console.log("hit case 0")
+    var indexNum = makeArrayOfIndices[0];
+    var tile = gameTiles[indexNum];
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    console.log(tile)
+    t++;
+    console.log(t);
+
+    break;
+
+
+    case 1:
+    console.log("hit case 1")
+    var indexNum = makeArrayOfIndices[1];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    console.log(t);
+    break;
+
+
+    case 2:
+    console.log("hit case 2")
+    var indexNum = makeArrayOfIndices[2];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    break;
+
+
+    case 3:
+    console.log("hit case 3")
+    var indexNum = makeArrayOfIndices[3];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    break;
+
+
+    case 4:
+    console.log("hit case 4")
+    var indexNum = makeArrayOfIndices[4];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    break;
+
+
+    case 5:
+    console.log("hit case 5")
+    var indexNum = makeArrayOfIndices[5];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    break;
+
+
+    case 6:
+    console.log("hit case 6")
+    var indexNum = makeArrayOfIndices[6];
+    var tile = gameTiles[indexNum]
+    $(tile).css('background-color','gray');
+    setTimeout(clear, 200);
+    t++;
+    break;
+  }  // end switch
+}// end flash
+
+
+
+              // var id2 = $(this).attr('id')
+
+
+
+function clear() {
+f++;
+  console.log("hit clear " + f)
+        $('#gTile1').css('background-color','#00CCFF');
+        $('#gTile2').css('background-color','#FFFF00');
+        $('#gTile3').css('background-color','#33FF00');
+        $('#gTile4').css('background-color','#FF0000');
+        $('#gTile5').css('background-color','#FF00FF');
+}
+
+              // function clear(tile) {
+              //   console.log("hit clear")
+              //   var indexNum1 = makeArrayOfIndices[i];
+              //   var tile1 = gameTiles[indexNum1]
+              //   var id = $(tile1).attr('id')
+              //   //
+              //   // console.log(id)
+              //
+              //   // console.log(tile)
+              //   switch(id) {
+              //     case 'gTile1':
+              //       $(tile1).css('background-color','#00CCFF');
+              //       console.log("CLEARED 1")
+              //       console.log(tile1)
+              //
+              //       // setTimeout(revertTile, 200)
+              //       // var click = 1 //testing
+              //       // captureClicks(click);
+              //         break;
+              //     case 'gTile2':
+              //       $(this).css('background-color','#FFFF00');
+              //       // setTimeout(revertTile, 200)
+              //       // var click = 2 //testing
+              //       // captureClicks(click);
+              //         break;
+              //     case 'gTile3':
+              //       $(this).css('background-color','#33FF00');
+              //       // setTimeout(revertTile, 200)
+              //       // var click = 3 //testing
+              //       // captureClicks(click);
+              //         break;
+              //     case 'gTile4':
+              //       $(this).css('background-color','#FF0000');
+              //       // setTimeout(revertTile, 200)
+              //       // var click = 4 //testing
+              //       // captureClicks(click);
+              //         break;
+              //     case 'gTile5':
+              //       $(this).css('background-color','#FF00FF');
+              //       // setTimeout(revertTile, 200)
+              //       // var click = 5 //testing
+              //       // captureClicks(click);
+              //         break;
+              //       } //end switch
+              //
+              // } // end clear
+
+
+            // function clear() {
+            //   console.log("hit clear")
+            //   var indexNum1 = makeArrayOfIndices[i];
+            //   var tile1 = gameTiles[indexNum1]
+            //   var id = $(tile1).attr('id')
+            //
+            //   console.log(id)
+            //
+            //   // console.log(tile)
+            //   switch(id) {
+            //     case 'gTile1':
+            //       $(this).css('background-color','#00CCFF');
+            //       console.log("CLEARED 1")
+            //       console.log(tile1)
+            //
+            //       // setTimeout(revertTile, 200)
+            //       // var click = 1 //testing
+            //       // captureClicks(click);
+            //         break;
+            //     case 'gTile2':
+            //       $(this).css('background-color','#FFFF00');
+            //       // setTimeout(revertTile, 200)
+            //       // var click = 2 //testing
+            //       // captureClicks(click);
+            //         break;
+            //     case 'gTile3':
+            //       $(this).css('background-color','#33FF00');
+            //       // setTimeout(revertTile, 200)
+            //       // var click = 3 //testing
+            //       // captureClicks(click);
+            //         break;
+            //     case 'gTile4':
+            //       $(this).css('background-color','#FF0000');
+            //       // setTimeout(revertTile, 200)
+            //       // var click = 4 //testing
+            //       // captureClicks(click);
+            //         break;
+            //     case 'gTile5':
+            //       $(this).css('background-color','#FF00FF');
+            //       // setTimeout(revertTile, 200)
+            //       // var click = 5 //testing
+            //       // captureClicks(click);
+            //         break;
+            //       } //end switch
+            //
+            // } // end clear
+
+
+
+
 
 
   var playerTurn = function() {
@@ -285,6 +404,8 @@ var makeFlashPattern = function() {
       }
   } // end playerTurn
 
+////////////////////////////////////////////////////////////////////
+
   var switchTiles = function() {
     $("#gameContainer").hide();
     $("#playContainer").show();
@@ -292,15 +413,30 @@ var makeFlashPattern = function() {
     playerTurn();
   }
         //Set timeout for multiple flash functions
-        var flashFunctions = [flash1, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
+        // var flashFunctions = [flash1, clear, clear1, flash2, clear2, flash3, clear3, flash4, clear4, flash5, clear5, flash6, clear6, flash7, clear7, switchTiles]
+        // var flashFunctions = [flash1, clear, flash2, clear, flash3, clear, flash4, clear, flash5, clear, flash6, clear, flash7, clear, switchTiles]
+        // var flashFunctions = [flash, clear, flash, clear, flash, clear, switchTiles]
+        // var flashFunctions = [flash, clear, flash, clear, flash, clear, flash, clear, flash, clear, flash, clear, flash, clear, switchTiles]
+        var flashFunctions = [flash, flash, flash, flash, flash, flash, flash, switchTiles]
+
+
             i = 0;
             function callFlash() {
               flashFunctions[i++]();
-                if (i < flashFunctions.length) setTimeout(callFlash, 200);
-              } window.setTimeout(callFlash, 200);
+                if (i < flashFunctions.length) setTimeout(callFlash, 500);
+              } window.setTimeout(callFlash, 500);
           } //End flashThoseGameTiles
   flashThoseGameTiles();
 } //End makeFlashPattern
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 //Check if player inputs the correct flash pattern
 var checkForMatch = function() {
