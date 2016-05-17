@@ -45,6 +45,35 @@ animation: colorChange 10s infinite;
   }
 }*/
 
+.btn {
+  background-color: #33FF00;
+  /*border-radius: 0px;*/
+  color: #000000
+}
+
+.btn:hover {
+  background-color: #FF00FF;
+}
+
+/*.btn:focus {
+  background-color: #FF00FF;
+}
+
+.btn:active {
+  background-color: #FF00FF;
+}
+
+.btn.active:focus {
+  background-color: #FF00FF;
+}*/
+
+
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  background-color: #33FF00;
+  outline: 0 none;
+}
+
 .startButton{
   /*outline: 6px dashed yellow;
   box-shadow: 0 0 0 2px #EA3556;*/
