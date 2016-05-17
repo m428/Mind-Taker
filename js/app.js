@@ -12,10 +12,6 @@ window.onload = function () {
   })
 };
 
-// $(".startButton").click(function() {
-//     audio.play();
-// });​
-
 //////////////////////////////Global Variables//////////////////////////////////
 var playerClickArray = [];
 var makeArrayOfIndices = [];
@@ -302,7 +298,7 @@ function runGame() {
        $("#gameContainer").show();
        $("#playContainer").hide();
        $(".motivator").remove();
-       $("<div class=result>MIND TAKEN!</div>").appendTo("#console");
+       $("<div class=result id=noMatch>MIND TAKEN!</div>").appendTo("#console");
      } else if (playerClickArray.length == makeArrayOfIndices.length) {
        match = true;
        turn = turn * -1
@@ -310,13 +306,13 @@ function runGame() {
        $("#gameContainer").show();
        $("#playContainer").hide();
        $(".motivator").remove();
-       $("<div class=result>WE HAVE A MATCH!</div>").appendTo("#console");
+       $("<div class=result id=match>MIND IT!</div>").appendTo("#console");
      }
        function removeResult() {
          $('button.readyButton').show();
          $(".result").remove();
        }
-  setTimeout(removeResult, 1000);
+  setTimeout(removeResult, 3000);
   } // end checkForMatch
 
   var keepScore = function(match, turn) {  // Track each player's score
@@ -334,13 +330,17 @@ function runGame() {
   } // end keepScore
 
   var checkWin = function() { //Check if either player has scored 5 times and declares a winner
-    if (player1score == 2) {
+    if (player1score == 1) {
       gameOver = true;
-      declareWinner();
+      $(".result").remove();
+      $(".readyButton").remove();
+      setTimeout(declareWinner, 4000);
       return gameOver;
-    } else if (player2score == 2) {
-      gameOver = true;
-        declareWinner();
+    } else if (player2score == 1) {
+        gameOver = true;
+        $(".result").remove();
+        $(".readyButton").remove();
+        setTimeout(declareWinner, 4000);
       return gameOver;
     } else {
       return gameOver;
@@ -349,13 +349,15 @@ function runGame() {
 
   function declareWinner() {
     if (gameOver == true) {
-      $('.score').remove();
       $(".playTile").remove();
       $(".gameTile").remove();
       $(".readyButton").remove();
-      $("<div class=endGame id=winner></div>").appendTo( $("#endGame"));
-      //TODO add conditional to state which player wins.
-      $("<div class=endGame id=scoreBoard></div>").appendTo( $("#endGame"));
+        if (turn == -1) {
+          console.log(turn);
+          $("<div class=endGame id=winner>PLAYER 1 WINS!</div>").appendTo( $("#gameContainer"));
+        } else {
+          $("<div class=endGame id=winner>PLAYER 2 WINS!</div>").appendTo( $("#gameContainer"));
+        }
       $("<button class=replayButton>PLAY AGAIN</button>").appendTo( $("#console")); //Adds a ready button to console
       $(".replayButton").addClass("btn btn-lg");
       $('button.replayButton').click(function() {
@@ -363,8 +365,11 @@ function runGame() {
           player1score = 0;
           player2score = 0;
           turnNumber = 0;
-          $(".replayButton").hide()
-          $(".startButton").show()
+          turn = 1;
+          $(".replayButton").hide();
+          $(".startButton").show();
+          $(".endGame").remove();
+          $('.score').remove();
       })
     }
     else {
