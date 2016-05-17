@@ -3,7 +3,6 @@
 
 /*TODO make font-size responsive*/
 
-
 body, html {
   height: 100%;
   backgorund: cover;
@@ -38,14 +37,10 @@ animation: colorChange 10s infinite;
   100% { color: hsl(0, 0%, 100%); }
 }
 
-
-
 .btn {
   background-color: #33FF00;
-  /*border-radius: 50px;*/
   color: #000000;
   font-family: 'Allerta Stencil', sans-serif;
-
 }
 
 .btn:hover {
@@ -98,8 +93,7 @@ animation: colorChange 10s infinite;
 
 #noMatch {
   font-family: 'Russo One', sans-serif;
-  font-size: 24pt;
-
+  font-size: 30pt;
   margin-left: 25%;
   margin-right: 25%;
   padding-top: 10px;
@@ -119,7 +113,6 @@ animation: colorChange 10s infinite;
 #match {
   font-family: 'Russo One', sans-serif;
   font-size: 30pt;
-
   margin-left: 25%;
   margin-right: 25%;
   padding-top: 10px;
@@ -138,15 +131,10 @@ animation: colorChange 10s infinite;
   100% { color: hsl(192, 100%, 50%); }
 }
 
-
-
-
-
 #scoreBoard {
   font-family: 'Allerta Stencil', sans-serif;
   font-size: 20pt;
 }
-
 
 .gameTile {
   display: inline-block;
@@ -217,7 +205,6 @@ animation: colorChange 10s infinite;
   animation: animateWinner 0.8s infinite;
   padding: 0px;
 }
-
 
 @keyframes animateWinner {
   0% { color: hsl(108, 100%, 50%); }

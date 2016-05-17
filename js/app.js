@@ -12,10 +12,6 @@ window.onload = function () {
   })
 };
 
-// $(".startButton").click(function() {
-//     audio.play();
-// });​
-
 //////////////////////////////Global Variables//////////////////////////////////
 var playerClickArray = [];
 var makeArrayOfIndices = [];
@@ -338,17 +334,12 @@ function runGame() {
       gameOver = true;
       $(".result").remove();
       $(".readyButton").remove();
-
-      // $("<div class=endGame id=winner>WOOHOOO</div>").appendTo( $("#endGame"));
-setTimeout(declareWinner, 4000);
-      // declareWinner();
+      setTimeout(declareWinner, 4000);
       return gameOver;
     } else if (player2score == 1) {
         gameOver = true;
         $(".result").remove();
         $(".readyButton").remove();
-
-        // $("<div class=endGame id=winner>WOOHOOO</div>").appendTo( $("#endGame"));
         setTimeout(declareWinner, 4000);
       return gameOver;
     } else {
