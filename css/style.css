@@ -43,7 +43,9 @@ animation: colorChange 10s infinite;
 .btn {
   background-color: #33FF00;
   /*border-radius: 50px;*/
-  color: #000000
+  color: #000000;
+  font-family: 'Allerta Stencil', sans-serif;
+
 }
 
 .btn:hover {
@@ -59,6 +61,16 @@ animation: colorChange 10s infinite;
   /*outline: 6px dashed yellow;
   box-shadow: 0 0 0 2px #EA3556;*/
   /*animation: 1s animateBorder infinite;*/
+}
+
+.readyButton:hover {
+  background-color: #FF00FF;
+  color: #ffffff;
+}
+
+.replayButton:hover {
+  background-color: #FF00FF;
+  color: #ffffff;
 }
 
 .instructions {
@@ -80,12 +92,12 @@ animation: colorChange 10s infinite;
 }
 
 .motivator {
-  font-family: 'Doppio One', sans-serif;
+  font-family: 'Allerta Stencil', sans-serif;
   font-size: 24pt;
 }
 
 #noMatch {
-  font-family: 'Doppio One', sans-serif;
+  font-family: 'Russo One', sans-serif;
   font-size: 24pt;
 
   margin-left: 25%;
@@ -105,7 +117,7 @@ animation: colorChange 10s infinite;
 }
 
 #match {
-  font-family: 'Doppio One', sans-serif;
+  font-family: 'Russo One', sans-serif;
   font-size: 30pt;
 
   margin-left: 25%;
