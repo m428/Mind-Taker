@@ -5,9 +5,8 @@
 
 body, html {
   height: 100%;
-  backgorund: cover;
+  background: cover;
   background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');
-  padding:10px;
   font-family: 'Doppio One', sans-serif;
 }
 
@@ -16,6 +15,7 @@ div.gifBackground {
   background-color: black;
   background-size: cover;
   height: 100%;
+  margin-top: 4%;
 }
 
 .row {
@@ -37,7 +37,6 @@ animation: colorChange 10s infinite;
   100% { color: hsl(0, 0%, 100%); }
 }
 
-
 .btn {
   background-color: #33FF00;
   color: #000000;
@@ -51,12 +50,6 @@ animation: colorChange 10s infinite;
 .btn:focus, .btn:active:focus, .btn.active:focus {
   background-color: #33FF00;
   outline: 0 none;
-}
-
-.startButton{
-  /*outline: 6px dashed yellow;
-  box-shadow: 0 0 0 2px #EA3556;*/
-  /*animation: 1s animateBorder infinite;*/
 }
 
 .readyButton:hover {
@@ -91,7 +84,6 @@ animation: colorChange 10s infinite;
     75% { outline-color: hsl(300, 100%, 50%); }
     100% { outline-color: hsl(0, 0%, 100%); }
 }
-
 
 #console {
   height: 40px;
@@ -147,7 +139,7 @@ animation: colorChange 10s infinite;
   font-size: 20pt;
 }
 
-.gameTile {
+.gameTile, .playTile {
   display: inline-block;
   background-color: gray;
   margin: 20px;
@@ -155,55 +147,34 @@ animation: colorChange 10s infinite;
   max-height: 100px;
   min-width: 60px;
   min-height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 20pt;
 }
 
-#gTile1 {
+#gTile1, #pTile1 {
   background-color: #00CCFF;
+  color: #00CCFF;
 }
 
-#gTile2 {
+#gTile2, #pTile2 {
   background-color: #FFFF00;
+  color: #FFFF00;
 }
 
-#gTile3 {
+#gTile3, #pTile3 {
   background-color: #33FF00;
+  color: #33FF00;
 }
 
-#gTile4 {
+#gTile4, #pTile4 {
   background-color:  #FF0000;
+  color:  #FF0000;
 }
 
-#gTile5 {
+#gTile5, #pTile5 {
   background-color: #FF00FF;
-}
-
-.playTile {
-  display: inline-block;
-  margin: 20px;
-  max-width: 100px;
-  max-height: 100px;
-  min-width: 60px;
-  min-height: 60px;
-}
-
-#pTile1 {
-  background-color: #00CCFF;
-}
-
-#pTile2 {
-  background-color: #FFFF00;
-}
-
-#pTile3 {
-  background-color: #33FF00;
-}
-
-#pTile4 {
-  background-color:  #FF0000;
-}
-
-#pTile5 {
-  background-color: #FF00FF;
+  color: #FF00FF;
 }
 
 .endGame {
@@ -229,6 +200,11 @@ animation: colorChange 10s infinite;
   margin-bottom: 20px;
 }
 
+#footer {
+  font-size: 8pt;
+  color: #33FF00;
+  margin-bottom: 4%;
+}
 
 /*///// basic styles ///// */
 .center {

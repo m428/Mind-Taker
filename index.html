@@ -11,6 +11,7 @@
   <title>Mind Taker</title>
 </head>
 <body>
+
   <div class="container fixed gifBackground">
     <div class="row center">
       <div class="col-xs-12 center" id="banner">
@@ -39,33 +40,64 @@
     </div>
     <div class="row center" id="gameContainer">
       <div class="col-xs-12">
-      <!-- Five gameTile divs will be created inside gameContainer with jQuery when start button is clicked -->
+        <audio id="tileSound1" preload="auto">
+            <source src="sound/sound1.wav"></source>
+        </audio>
+        <audio id="tileSound2" preload="auto">
+            <source src="sound/sound2.wav"></source>
+        </audio>
+        <audio id="tileSound3" preload="auto">
+            <source src="sound/sound3.wav"></source>
+        </audio>
+        <audio id="tileSound4" preload="auto">
+            <source src="sound/sound4.wav"></source>
+        </audio>
+        <audio id="tileSound5" preload="auto">
+            <source src="sound/sound5.wav"></source>
+        </audio>
+        <audio id="tileSound6" preload="auto">
+            <source src="sound/sound6.wav"></source>
+        </audio>
+        <audio id="tileSound7" preload="auto">
+            <source src="sound/sound7.wav"></source>
+        </audio>
       </div>
     </div>
+
     <div class="row center" id="playContainer">
       <div class="col-xs-12">
-      <!-- Five playTile divs will be created inside playContainer with jQuery when start button is clicked -->
+        <audio id="select" preload="auto">
+            <source src="sound/select.mp3"></source>
+        </audio>
       </div>
     </div>
 
     <div class="row center">
       <div class="col-xs-12" id="console">
         <audio id="startSound" preload="auto">
-            <source src="http://www.shwiggie.com/media/ringtones/television/adultswim/birdman-buweeoop.mp3"></source>
-            <!-- <source src="sound/Come-to-papa.mp3"></source> -->
+            <source src="sound/come-to-papa.mp3"></source>
         </audio>
         <button type="button" class="btn btn-primary btn-lg startButton">START GAME</button>
-      <!-- <button type="button" class="btn btn-primary btn-lg">REPLAY</button> -->
-      <audio id="readySound" preload="auto">
-          <source src="sound/Come-to-papa.mp3"></source>
-      </audio>
+
       </div>
     </div>
 
     <div class="row center">
       <div class="col-xs-12" id="endGame">
+        <audio id="win" preload="auto">
+            <source src="sound/ha-ha-enjoyment.wav"></source>
+        </audio>
       </div>
     </div>
   </div>
+
+  <footer class="container" id="footer">
+    <div class="row">
+      <div class="col-xs-12 center">
+        <p id="footer-text"> Created by Mala Nimalasuriya &copy;2016 </p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

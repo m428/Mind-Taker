@@ -8,7 +8,6 @@ window.onload = function () {
       scoreBoard();
       $(".startButton").hide();
       $(".instructions").hide();
-
   })
 };
 
@@ -28,19 +27,18 @@ var turnNumber = 0;
 // function makeTiles() Makes 5 blank tiles
 var makeTiles = function() {
   //TODO refactor repetative code
-  $("<div class=gameTile id=gTile1></div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile2></div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile3></div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile4></div>").appendTo( $("#gameContainer"));
-  // TODO remove last div and change 5 to 4 when generating index array
-  $("<div class=gameTile id=gTile5></div>").appendTo( $("#gameContainer"));
+  // TODO remove last div from each container and change 5 to 4 when generating index array
+  $("<div class=gameTile id=gTile1>1</div>").appendTo( $("#gameContainer"));
+  $("<div class=gameTile id=gTile2>2</div>").appendTo( $("#gameContainer"));
+  $("<div class=gameTile id=gTile3>3</div>").appendTo( $("#gameContainer"));
+  $("<div class=gameTile id=gTile4>4</div>").appendTo( $("#gameContainer"));
+  $("<div class=gameTile id=gTile5>5</div>").appendTo( $("#gameContainer"));
   console.log("Made game tiles");
-  $("<div class=playTile id=pTile1 value=0></div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile2 value=1></div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile3 value=2></div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile4 value=3></div>").appendTo( $("#playContainer"));
-  // TODO remove last div and change 5 to 4 when generating index array
-  $("<div class=playTile id=pTile5 value=4></div>").appendTo( $("#playContainer"));
+  $("<div class=playTile id=pTile1>1</div>").appendTo( $("#playContainer"));
+  $("<div class=playTile id=pTile2>2</div>").appendTo( $("#playContainer"));
+  $("<div class=playTile id=pTile3>3</div>").appendTo( $("#playContainer"));
+  $("<div class=playTile id=pTile4>4</div>").appendTo( $("#playContainer"));
+  $("<div class=playTile id=pTile5>5</div>").appendTo( $("#playContainer"));
   console.log("Made player tiles");
   $("#playContainer").hide();
 }
@@ -69,8 +67,8 @@ function runGame() {
     $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
   //  TODO play audio on first click only
     $('button.readyButton').hide();
-      var audio = $("#readySound")[0];
-        audio.play();
+      // var audio = $("#readySound")[0];
+      //   audio.play();
 
         makeArrayOfIndices = [];
         playerClickArray = [];
@@ -98,42 +96,44 @@ function runGame() {
 
   function highlightTile() {
      $('.playTile').click(function() {
+       var audio = $("#select")[0];
+         audio.play();
         var id = $(this).attr('id')
         var captureClicks = function() { //Capture player input and store clicks as an array for comparison against generated game array
           switch(click) {
             case 1:
-              if (clicks < 7) {
+              if (clicks < 5) {
                 playerClickArray.push(0);
                 clicks++;
                 console.log(playerClickArray);
               } break;
             case 2:
-              if (clicks < 7) {
+              if (clicks < 5) {
                 playerClickArray.push(1);
                 clicks++;
                 console.log(playerClickArray);
               } break;
             case 3:
-              if (clicks < 7) {
+              if (clicks < 5) {
                 playerClickArray.push(2);
                 clicks++;
                 console.log(playerClickArray);
               } break;
             case 4:
-              if (clicks < 7) {
+              if (clicks < 5) {
                 playerClickArray.push(3);
                 clicks++;
                 console.log(playerClickArray);
               } break;
             case 5:
-              if (clicks < 7) {
+              if (clicks < 5) {
                 playerClickArray.push(4);
                 clicks++;
                 console.log(playerClickArray);
               } break;
           } //end switch
-          //Check for match if player has clicked 7 tiles
-          if (clicks == 7) {
+          //Check for match if player has clicked 5 tiles
+          if (clicks == 5) {
             checkForMatch();
           } else {
             return;
@@ -142,31 +142,31 @@ function runGame() {
 
       switch(id) {
         case 'pTile1':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','black');
           setTimeout(revertTile, 200)
           var click = 1 //testing
           captureClicks(click);
             break;
         case 'pTile2':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','black');
           setTimeout(revertTile, 200)
           var click = 2 //testing
           captureClicks(click);
             break;
         case 'pTile3':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','black');
           setTimeout(revertTile, 200)
           var click = 3 //testing
           captureClicks(click);
             break;
         case 'pTile4':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','black');
           setTimeout(revertTile, 200)
           var click = 4 //testing
           captureClicks(click);
             break;
         case 'pTile5':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','black');
           setTimeout(revertTile, 200)
           var click = 5 //testing
           captureClicks(click);
@@ -180,7 +180,7 @@ function runGame() {
 
   //Generates random flash sequence and flashes game tiles
   function flashPattern() {
-      for (var i = 0; i < 7; i++) {
+      for (var i = 0; i < 5; i++) {
         var randomIndices = Math.floor(Math.random() * (5));
           makeArrayOfIndices.push(randomIndices);
           console.log(makeArrayOfIndices); //Checks to see if we've properly stored our new index numbers
@@ -195,58 +195,72 @@ function runGame() {
                 console.log("hit case 0")
                 var indexNum = makeArrayOfIndices[0];
                 var tile = gameTiles[indexNum];
-                $(tile).css('background-color','gray');
+                var audio = $("#tileSound1")[0];
+                  audio.play();
+                $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 1:
                 console.log("hit case 1")
                 var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound2")[0];
+                  audio.play();
+                $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 2:
                 console.log("hit case 2")
                 var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound3")[0];
+                  audio.play();
+                $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 3:
                 console.log("hit case 3")
                 var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound4")[0];
+                  audio.play();
+                $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 4:
                 console.log("hit case 4")
                 var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound5")[0];
+                  audio.play();
+                $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
-              case 5:
-                console.log("hit case 5")
-                var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                setTimeout(clear, 200);
-                t++;
-                  break;
-              case 6:
-                console.log("hit case 6")
-                var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
-                setTimeout(clear, 200);
-                t++;
-                  break;
+              // case 5:
+              //   console.log("hit case 5")
+              //   var indexNum = makeArrayOfIndices[5];
+              //   var tile = gameTiles[indexNum];
+              //   var audio = $("#tileSound5")[0];
+              //     audio.play();
+              //   $(tile).css('background-color','black');
+              //   setTimeout(clear, 200);
+              //   t++;
+              //     break;
+              // case 5:
+              //   console.log("hit case 5")
+              //   var indexNum = makeArrayOfIndices[5];
+              //   var tile = gameTiles[indexNum];
+              //   var audio = $("#tileSound7")[0];
+              //     audio.play();
+              //   $(tile).css('background-color','black');
+              //   setTimeout(clear, 200);
+              //   t++;
+              //     break;
             }  // end switch
           }// end flash
           function clear() {
@@ -283,7 +297,7 @@ function runGame() {
 //Check if player inputs the correct flash pattern
   var checkForMatch = function() {
     var match = true;
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < 5; i++) {
       if (playerClickArray[i] == undefined || playerClickArray[i] != makeArrayOfIndices[i]) {
          match = false;
          $("#gameContainer").show();
@@ -352,6 +366,8 @@ function runGame() {
       $(".playTile").remove();
       $(".gameTile").remove();
       $(".readyButton").remove();
+      var audio = $("#win")[0];
+        audio.play();
         if (turn == -1) {
           console.log(turn);
           $("<div class=endGame id=winner>PLAYER 1 WINS!</div>").appendTo( $("#gameContainer"));
