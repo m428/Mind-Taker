@@ -96,6 +96,8 @@ function runGame() {
 
   function highlightTile() {
      $('.playTile').click(function() {
+       var audio = $("#select")[0];
+         audio.play();
         var id = $(this).attr('id')
         var captureClicks = function() { //Capture player input and store clicks as an array for comparison against generated game array
           switch(click) {
