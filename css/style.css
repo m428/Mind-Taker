@@ -7,7 +7,6 @@ body, html {
   height: 100%;
   background: cover;
   background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');
-  padding:10px;
   font-family: 'Doppio One', sans-serif;
 }
 
@@ -16,6 +15,7 @@ div.gifBackground {
   background-color: black;
   background-size: cover;
   height: 100%;
+  margin-top: 4%;
 }
 
 .row {
@@ -51,12 +51,6 @@ animation: colorChange 10s infinite;
 .btn:focus, .btn:active:focus, .btn.active:focus {
   background-color: #33FF00;
   outline: 0 none;
-}
-
-.startButton{
-  /*outline: 6px dashed yellow;
-  box-shadow: 0 0 0 2px #EA3556;*/
-  /*animation: 1s animateBorder infinite;*/
 }
 
 .readyButton:hover {
@@ -157,7 +151,7 @@ animation: colorChange 10s infinite;
   min-height: 60px;
   text-align: center;
   line-height: 60px;
-  font-size: 16pt;
+  font-size: 20pt;
 }
 
 #gTile1 {
@@ -195,7 +189,7 @@ animation: colorChange 10s infinite;
   color: white;
   text-align: center;
   line-height: 60px;
-  font-size: 16pt;
+  font-size: 20pt;
 }
 
 
@@ -247,6 +241,11 @@ animation: colorChange 10s infinite;
   margin-bottom: 20px;
 }
 
+#footer {
+  font-size: 8pt;
+  color: #33FF00;
+  margin-bottom: 4%;
+}
 
 /*///// basic styles ///// */
 .center {
