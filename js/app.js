@@ -366,6 +366,8 @@ function runGame() {
       $(".playTile").remove();
       $(".gameTile").remove();
       $(".readyButton").remove();
+      var audio = $("#win")[0];
+        audio.play();
         if (turn == -1) {
           console.log(turn);
           $("<div class=endGame id=winner>PLAYER 1 WINS!</div>").appendTo( $("#gameContainer"));
