@@ -37,6 +37,7 @@ animation: colorChange 10s infinite;
   100% { color: hsl(0, 0%, 100%); }
 }
 
+
 .btn {
   background-color: #33FF00;
   color: #000000;
@@ -68,19 +69,29 @@ animation: colorChange 10s infinite;
   color: #ffffff;
 }
 
-.instructions {
-  outline: 6px solid #000000;
-  box-shadow: 0 0 0 20px #000000;
-  /*animation: 1s animateBorder infinite;*/
-  /*font-size: 14pt;*/
-  /*padding: 30px 0px 40px 0px;*/
-  /*margin: 5px 0px 5px 0px;*/
+.pop {
+  color: #FF00FF;
 }
 
-.instructions:hover{
-    outline-color: #33FF00;
-    box-shadow: 0 0 0 20px #000000	;
+.instructions {
+  color: #33FF00;
+  font-size: 12pt;
+  outline: 10px dashed #33FF00;
+  padding: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  animation: 10s animateBorder infinite;
 }
+
+@keyframes animateBorder {
+    0% { outline-color: hsl(0, 0%, 100%); }
+    25% { outline-color: hsl(108, 100%, 50%); }
+    50% { outline-color: hsl(0, 0%, 100%); }
+    75% { outline-color: hsl(300, 100%, 50%); }
+    100% { outline-color: hsl(0, 0%, 100%); }
+}
+
 
 #console {
   height: 40px;
