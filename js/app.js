@@ -69,8 +69,8 @@ function runGame() {
     $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
   //  TODO play audio on first click only
     $('button.readyButton').hide();
-      var audio = $("#readySound")[0];
-        audio.play();
+      // var audio = $("#readySound")[0];
+      //   audio.play();
 
         makeArrayOfIndices = [];
         playerClickArray = [];
