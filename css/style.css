@@ -5,7 +5,7 @@
 
 body, html {
   height: 100%;
-  backgorund: cover;
+  background: cover;
   background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');
   padding:10px;
   font-family: 'Doppio One', sans-serif;
@@ -155,26 +155,34 @@ animation: colorChange 10s infinite;
   max-height: 100px;
   min-width: 60px;
   min-height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16pt;
 }
 
 #gTile1 {
   background-color: #00CCFF;
+  color: #00CCFF;
 }
 
 #gTile2 {
   background-color: #FFFF00;
+  color: #FFFF00;
 }
 
 #gTile3 {
   background-color: #33FF00;
+  color: #33FF00;
 }
 
 #gTile4 {
   background-color:  #FF0000;
+  color:  #FF0000;
 }
 
 #gTile5 {
   background-color: #FF00FF;
+  color: #FF00FF;
 }
 
 .playTile {
@@ -184,26 +192,36 @@ animation: colorChange 10s infinite;
   max-height: 100px;
   min-width: 60px;
   min-height: 60px;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 16pt;
 }
+
 
 #pTile1 {
   background-color: #00CCFF;
+  color: #00CCFF;
 }
 
 #pTile2 {
   background-color: #FFFF00;
+  color: #FFFF00;
 }
 
 #pTile3 {
   background-color: #33FF00;
+  color: #33FF00;
 }
 
 #pTile4 {
   background-color:  #FF0000;
+  color:  #FF0000;
 }
 
 #pTile5 {
   background-color: #FF00FF;
+  color: #FF00FF;
 }
 
 .endGame {
