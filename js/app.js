@@ -142,31 +142,31 @@ function runGame() {
 
       switch(id) {
         case 'pTile1':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','white');
           setTimeout(revertTile, 200)
           var click = 1 //testing
           captureClicks(click);
             break;
         case 'pTile2':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','white');
           setTimeout(revertTile, 200)
           var click = 2 //testing
           captureClicks(click);
             break;
         case 'pTile3':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','white');
           setTimeout(revertTile, 200)
           var click = 3 //testing
           captureClicks(click);
             break;
         case 'pTile4':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','white');
           setTimeout(revertTile, 200)
           var click = 4 //testing
           captureClicks(click);
             break;
         case 'pTile5':
-          $(this).css('background-color','gray');
+          $(this).css('background-color','white');
           setTimeout(revertTile, 200)
           var click = 5 //testing
           captureClicks(click);
@@ -195,55 +195,69 @@ function runGame() {
                 console.log("hit case 0")
                 var indexNum = makeArrayOfIndices[0];
                 var tile = gameTiles[indexNum];
-                $(tile).css('background-color','gray');
+                var audio = $("#tileSound1")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 1:
                 console.log("hit case 1")
                 var indexNum = makeArrayOfIndices[1];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound2")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 2:
                 console.log("hit case 2")
                 var indexNum = makeArrayOfIndices[2];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound3")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 3:
                 console.log("hit case 3")
                 var indexNum = makeArrayOfIndices[3];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound4")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 4:
                 console.log("hit case 4")
                 var indexNum = makeArrayOfIndices[4];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound5")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 5:
                 console.log("hit case 5")
                 var indexNum = makeArrayOfIndices[5];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound6")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 6:
                 console.log("hit case 6")
                 var indexNum = makeArrayOfIndices[6];
-                var tile = gameTiles[indexNum]
-                $(tile).css('background-color','gray');
+                var tile = gameTiles[indexNum];
+                var audio = $("#tileSound7")[0];
+                  audio.play();
+                $(tile).css('background-color','white');
                 setTimeout(clear, 200);
                 t++;
                   break;
