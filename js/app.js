@@ -19,7 +19,7 @@ var player2score = 0;
 var turn = 1;
 var match = false;
 var clicks = 0;
-var turnNumber = 0;
+var turnNumber = 1;
 ////////////////////////////////////////////////////////////////////////////////
 
 var makeTiles = function() { // Generate game and play tiles
@@ -29,23 +29,25 @@ var makeTiles = function() { // Generate game and play tiles
   $('<div class=gameTile id=gTile3>3</div>').appendTo( $('#gameContainer'));
   $('<div class=gameTile id=gTile4>4</div>').appendTo( $('#gameContainer'));
   $('<div class=gameTile id=gTile5>5</div>').appendTo( $('#gameContainer'));
-  console.log('Made game tiles');
   $('<div class=playTile id=pTile1>1</div>').appendTo( $('#playContainer'));
   $('<div class=playTile id=pTile2>2</div>').appendTo( $('#playContainer'));
   $('<div class=playTile id=pTile3>3</div>').appendTo( $('#playContainer'));
   $('<div class=playTile id=pTile4>4</div>').appendTo( $('#playContainer'));
   $('<div class=playTile id=pTile5>5</div>').appendTo( $('#playContainer'));
-  console.log('Made player tiles');
   $('#playContainer').hide();
 } //end makeTiles()
+
 var scoreBoard = function() { // Create scoreboard and display initial score of 0
   $('<div class=score>PLAYER 1</div>').appendTo( $('#player1'));
   $('<div class=score>PLAYER 2</div>').appendTo( $('#player2'));
+  $('<div class=score>ROUND</div>').appendTo( $('#round'));
   $('<div class=score id=p1></div>').appendTo( $('#player1'));
   $('<div class=score id=p2></div>').appendTo( $('#player2'));
+  $('<div class=score id=roundNumber>1</div>').appendTo( $('#round'));
   document.getElementById('p1').innerHTML = player1score;
   document.getElementById('p2').innerHTML = player2score;
 } // end scoreBoard()
+
 var makeReadyButton = function() {
   $('<button class=readyButton>READY</button>').appendTo( $('#console')); // Add ready button to console
   $('.readyButton').addClass('btn btn-lg');
@@ -61,11 +63,8 @@ function runGame() { // All functions below exist within runGame()
         clicks = 0;
         flashPattern();
         turnNumber = turnNumber + 1;
-        if (turnNumber == 1) {
-          console.log('This is turn number ' + turnNumber);
+        if (turnNumber == 2) {
           recordPlayerInput();
-        } else {
-          console.log('This is turn number ' + turnNumber);
         }
     });
   } // end ready()
@@ -287,6 +286,7 @@ function runGame() { // All functions below exist within runGame()
     } else if (match == false) {
       console.log('no match')
     }
+    document.getElementById('roundNumber').innerHTML = turnNumber;
   } // end keepScore()
 
   var checkWin = function() { // Check if either player has scored 5 times and declare a winner
@@ -322,14 +322,14 @@ function runGame() { // All functions below exist within runGame()
       $('<button class=replayButton>PLAY AGAIN</button>').appendTo( $('#console'));
       $('.replayButton').addClass('btn btn-lg');
       $('button.replayButton').click(function() {
-          player1score = 0;
-          player2score = 0;
-          turnNumber = 0;
-          turn = 1;
-          $('.replayButton').hide();
-          $('.startButton').show();
-          $('.endGame').remove();
-          $('.score').remove();
+        player1score = 0;
+        player2score = 0;
+        turnNumber = 1;
+        turn = 1;
+        $('.replayButton').hide();
+        $('.startButton').show();
+        $('.endGame').remove();
+        $('.score').remove();
       });
     }
   } // end declareWinner()
