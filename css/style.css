@@ -26,7 +26,8 @@ div.gifBackground {
 #banner h1 {
 font-size: 60pt;
 font-family: 'Russo One', sans-serif;
-animation: colorChange 10s infinite;
+animation: colorChange 5s infinite;
+margin-top: 8%;
 }
 
 @keyframes colorChange {
@@ -40,7 +41,7 @@ animation: colorChange 10s infinite;
 .btn {
   background-color: #33FF00;
   color: #000000;
-  font-family: 'Allerta Stencil', sans-serif;
+  font-family: 'Russo One', sans-serif;
 }
 
 .btn:hover {
@@ -73,8 +74,8 @@ animation: colorChange 10s infinite;
   padding: 3%;
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 5%;
-  animation: 10s animateBorder infinite;
+  margin-top: 8%;
+  animation: 5s animateBorder infinite;
 }
 
 @keyframes animateBorder {
@@ -86,11 +87,12 @@ animation: colorChange 10s infinite;
 }
 
 #console {
-  height: 40px;
+  height: 100px;
+  /*margin-bottom: 2%;*/
 }
 
 .motivator {
-  font-family: 'Allerta Stencil', sans-serif;
+  font-family: 'Russo One', sans-serif;
   font-size: 24pt;
 }
 
@@ -106,7 +108,7 @@ animation: colorChange 10s infinite;
 
 @keyframes animateNoMatch {
   to {
-    font-size: 40pt;
+    font-size: 35pt;
   }
   0% { color: hsl(60, 100%, 50%); }
   50% { color: hsl(0, 100%, 50%); }
@@ -125,7 +127,7 @@ animation: colorChange 10s infinite;
 
 @keyframes animateMatch {
   to {
-    font-size: 40pt;
+    font-size: 35pt;
   }
   0% { color: hsl(108, 100%, 50%); }
   25% { color: hsl(300, 100%, 50%); }
@@ -137,12 +139,16 @@ animation: colorChange 10s infinite;
 #scoreBoard {
   font-family: 'Allerta Stencil', sans-serif;
   font-size: 20pt;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
+.score {
+  font-size: 30pt;
+}
 .gameTile, .playTile {
   display: inline-block;
   background-color: gray;
-  margin: 20px;
   max-width: 100px;
   max-height: 100px;
   min-width: 60px;
@@ -150,6 +156,10 @@ animation: colorChange 10s infinite;
   text-align: center;
   line-height: 60px;
   font-size: 20pt;
+  margin-top: 5%;
+  margin-left:1%;
+  margin-right: 1%;
+  margin-bottom: 5%;
 }
 
 #gTile1, #pTile1 {
@@ -204,6 +214,10 @@ animation: colorChange 10s infinite;
   font-size: 8pt;
   color: #33FF00;
   margin-bottom: 4%;
+  /*height: 100%;*/
+  /*position: relative;*/
+  padding-top: 85%;
+
 }
 
 /*///// basic styles ///// */

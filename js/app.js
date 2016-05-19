@@ -45,8 +45,8 @@ var makeTiles = function() {
 
 //Create scoreboard and display initial score of 0
 var scoreBoard = function() {
-  $("<div class=score>PLAYER 1</div>").appendTo( $("#player1"));
-  $("<div class=score>PLAYER 2</div>").appendTo( $("#player2"));
+  $("<div >PLAYER 1</div>").appendTo( $("#player1"));
+  $("<div >PLAYER 2</div>").appendTo( $("#player2"));
   $("<div class=score id=p1></div>").appendTo( $("#player1"));
   $("<div class=score id=p2></div>").appendTo( $("#player2"));
   document.getElementById("p1").innerHTML = player1score;
@@ -344,13 +344,13 @@ function runGame() {
   } // end keepScore
 
   var checkWin = function() { //Check if either player has scored 5 times and declares a winner
-    if (player1score == 1) {
+    if (player1score == 3) {
       gameOver = true;
       $(".result").remove();
       $(".readyButton").remove();
       setTimeout(declareWinner, 4000);
       return gameOver;
-    } else if (player2score == 1) {
+    } else if (player2score == 3) {
         gameOver = true;
         $(".result").remove();
         $(".readyButton").remove();
