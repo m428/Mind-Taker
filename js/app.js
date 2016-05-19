@@ -20,14 +20,10 @@ var turn = 1;
 var match = false;
 var clicks = 0;
 var turnNumber = 0;
-  var f = 0
-// var click = 1;
 ////////////////////////////////////////////////////////////////////////////////
 
-// function makeTiles() Makes 5 blank tiles
-var makeTiles = function() {
+var makeTiles = function() { // Generate game and play tiles
   //TODO refactor repetative code
-  // TODO remove last div from each container and change 5 to 4 when generating index array
   $('<div class=gameTile id=gTile1>1</div>').appendTo( $('#gameContainer'));
   $('<div class=gameTile id=gTile2>2</div>').appendTo( $('#gameContainer'));
   $('<div class=gameTile id=gTile3>3</div>').appendTo( $('#gameContainer'));
@@ -41,35 +37,25 @@ var makeTiles = function() {
   $('<div class=playTile id=pTile5>5</div>').appendTo( $('#playContainer'));
   console.log('Made player tiles');
   $('#playContainer').hide();
-}
-
-//Create scoreboard and display initial score of 0
-var scoreBoard = function() {
+} //end makeTiles()
+var scoreBoard = function() { // Create scoreboard and display initial score of 0
   $('<div class=score>PLAYER 1</div>').appendTo( $('#player1'));
   $('<div class=score>PLAYER 2</div>').appendTo( $('#player2'));
   $('<div class=score id=p1></div>').appendTo( $('#player1'));
   $('<div class=score id=p2></div>').appendTo( $('#player2'));
   document.getElementById('p1').innerHTML = player1score;
   document.getElementById('p2').innerHTML = player2score;
-}
-
-
+} // end scoreBoard()
 var makeReadyButton = function() {
-  $('<button class=readyButton>READY</button>').appendTo( $('#console')); //Adds a ready button to console
+  $('<button class=readyButton>READY</button>').appendTo( $('#console')); // Add ready button to console
   $('.readyButton').addClass('btn btn-lg');
-}
+} // end makeReadyButton()
 
-///////////////////////////// FUNCTION runGame /////////////////////////////////
-function runGame() {
+function runGame() { // All functions below exist within runGame()
   var gameOver = false;
-//////////////// EVERYTHING BELOW IS NOW INSIDE runGame ////////////////////////
   function ready() {
-    $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
-  //  TODO play audio on first click only
+    $('button.readyButton').click(function() { // Add listener to ready button and generate flash pattern on click
     $('button.readyButton').hide();
-      // var audio = $('#readySound')[0];
-      //   audio.play();
-
         makeArrayOfIndices = [];
         playerClickArray = [];
         clicks = 0;
@@ -82,19 +68,18 @@ function runGame() {
           console.log('This is turn number ' + turnNumber);
         }
     });
-  } // end ready
+  } // end ready()
 
-//Adds click event listeners to playTiles and records each click in an array.
-  function recordPlayerInput() {
+  function recordPlayerInput() { // Add click event listeners to playTiles and record each click in an array
     var revertTile = function() {
       $('#pTile1').css('background-color','#00CCFF');
       $('#pTile2').css('background-color','#FFFF00');
       $('#pTile3').css('background-color','#33FF00');
       $('#pTile4').css('background-color','#FF0000');
       $('#pTile5').css('background-color','#FF00FF');
-    } // end revertTile
+    } // end revertTile()
 
-  function highlightTile() {
+  function highlightTile() { // Flash play tile on click
      $('.playTile').click(function() {
        var audio = $('#select')[0];
          audio.play();
@@ -105,94 +90,82 @@ function runGame() {
               if (clicks < 5) {
                 playerClickArray.push(0);
                 clicks++;
-                console.log(playerClickArray);
               } break;
             case 2:
               if (clicks < 5) {
                 playerClickArray.push(1);
                 clicks++;
-                console.log(playerClickArray);
               } break;
             case 3:
               if (clicks < 5) {
                 playerClickArray.push(2);
                 clicks++;
-                console.log(playerClickArray);
               } break;
             case 4:
               if (clicks < 5) {
                 playerClickArray.push(3);
                 clicks++;
-                console.log(playerClickArray);
               } break;
             case 5:
               if (clicks < 5) {
                 playerClickArray.push(4);
                 clicks++;
-                console.log(playerClickArray);
               } break;
-          } //end switch
-          //Check for match if player has clicked 5 tiles
-          if (clicks == 5) {
-            checkForMatch();
+            }
+          if (clicks == 5) { // Check for match if player has clicked 5 tiles
+            checkMatch();
           } else {
             return;
           }
-        } //end captureClicks
-
+        } //end captureClicks()
       switch(id) {
         case 'pTile1':
           $(this).css('background-color','black');
           setTimeout(revertTile, 200)
-          var click = 1 //testing
+          var click = 1
           captureClicks(click);
             break;
         case 'pTile2':
           $(this).css('background-color','black');
           setTimeout(revertTile, 200)
-          var click = 2 //testing
+          var click = 2
           captureClicks(click);
             break;
         case 'pTile3':
           $(this).css('background-color','black');
           setTimeout(revertTile, 200)
-          var click = 3 //testing
+          var click = 3
           captureClicks(click);
             break;
         case 'pTile4':
           $(this).css('background-color','black');
           setTimeout(revertTile, 200)
-          var click = 4 //testing
+          var click = 4
           captureClicks(click);
             break;
         case 'pTile5':
           $(this).css('background-color','black');
           setTimeout(revertTile, 200)
-          var click = 5 //testing
+          var click = 5
           captureClicks(click);
             break;
-          }
+          } // end switch()
         });
-      } // end highlightTile
+      } // end highlightTile()
     highlightTile()
-  } // end recordPlayerInput
+  } // end recordPlayerInput()
 
-
-  //Generates random flash sequence and flashes game tiles
-  function flashPattern() {
+  function flashPattern() {  // Generate random flash sequence and flash game tiles
       for (var i = 0; i < 5; i++) {
         var randomIndices = Math.floor(Math.random() * (5));
           makeArrayOfIndices.push(randomIndices);
-          console.log(makeArrayOfIndices); //Checks to see if we've properly stored our new index numbers
         }
-      function flashTiles() {
+      function flashTiles() { // Play audio and flash tiles
         var gameTiles = document.getElementsByClassName('gameTile');
         var t = 0;
           function flash() {
-            console.log('t = ' + t)
             switch(t) {
               case 0:
-                console.log('hit case 0')
                 var indexNum = makeArrayOfIndices[0];
                 var tile = gameTiles[indexNum];
                 var audio = $('#tileSound1')[0];
@@ -202,7 +175,6 @@ function runGame() {
                 t++;
                   break;
               case 1:
-                console.log('hit case 1')
                 var indexNum = makeArrayOfIndices[1];
                 var tile = gameTiles[indexNum];
                 var audio = $('#tileSound2')[0];
@@ -212,7 +184,6 @@ function runGame() {
                 t++;
                   break;
               case 2:
-                console.log('hit case 2')
                 var indexNum = makeArrayOfIndices[2];
                 var tile = gameTiles[indexNum];
                 var audio = $('#tileSound3')[0];
@@ -222,7 +193,6 @@ function runGame() {
                 t++;
                   break;
               case 3:
-                console.log('hit case 3')
                 var indexNum = makeArrayOfIndices[3];
                 var tile = gameTiles[indexNum];
                 var audio = $('#tileSound4')[0];
@@ -232,7 +202,6 @@ function runGame() {
                 t++;
                   break;
               case 4:
-                console.log('hit case 4')
                 var indexNum = makeArrayOfIndices[4];
                 var tile = gameTiles[indexNum];
                 var audio = $('#tileSound5')[0];
@@ -241,61 +210,38 @@ function runGame() {
                 setTimeout(clear, 200);
                 t++;
                   break;
-              // case 5:
-              //   console.log('hit case 5')
-              //   var indexNum = makeArrayOfIndices[5];
-              //   var tile = gameTiles[indexNum];
-              //   var audio = $('#tileSound5')[0];
-              //     audio.play();
-              //   $(tile).css('background-color','black');
-              //   setTimeout(clear, 200);
-              //   t++;
-              //     break;
-              // case 5:
-              //   console.log('hit case 5')
-              //   var indexNum = makeArrayOfIndices[5];
-              //   var tile = gameTiles[indexNum];
-              //   var audio = $('#tileSound7')[0];
-              //     audio.play();
-              //   $(tile).css('background-color','black');
-              //   setTimeout(clear, 200);
-              //   t++;
-              //     break;
-            }  // end switch
-          }// end flash
+            }  // end switch()
+          }// end flash()
           function clear() {
             $('#gTile1').css('background-color','#00CCFF');
             $('#gTile2').css('background-color','#FFFF00');
             $('#gTile3').css('background-color','#33FF00');
             $('#gTile4').css('background-color','#FF0000');
             $('#gTile5').css('background-color','#FF00FF');
-          }
-
+          } // end clear()
           function playerTurn() {
             if (turn == 1) {
               $('<div class=motivator>PLAYER 1 GO!</div>').appendTo('#console');
               } else {
                 $('<div class=motivator>PLAYER 2 GO!</div>').appendTo('#console');
               }
-          } // end playerTurn
+          } // end playerTurn()
           var switchTiles = function() {
             $('#gameContainer').hide();
             $('#playContainer').show();
             playerTurn();
-          }
-          //Set timeout for multiple flashes
+          } //end switchTiles()
           var flashFunctions = [flash, flash, flash, flash, flash, flash, flash, switchTiles]
             i = 0;
-            function callFlash() {
+            function callFlash() {  // Set timeout for multiple flashes
               flashFunctions[i++]();
                 if (i < flashFunctions.length) setTimeout(callFlash, 500);
                 } window.setTimeout(callFlash, 500);
-        } //End flashTiles
+        } // end flashTiles()
     flashTiles();
-  } //End flashPattern
+  } // end flashPattern()
 
-//Check if player inputs the correct flash pattern
-  var checkForMatch = function() {
+  var checkMatch = function() { // Check if player inputs correct flash pattern
     var match = true;
     for (var i = 0; i < 5; i++) {
       if (playerClickArray[i] == undefined || playerClickArray[i] != makeArrayOfIndices[i]) {
@@ -326,8 +272,8 @@ function runGame() {
          $('button.readyButton').show();
          $('.result').remove();
        }
-  setTimeout(removeResult, 3000);
-  } // end checkForMatch
+     setTimeout(removeResult, 3000);
+  } // end checkMatch()
 
   var keepScore = function(match, turn) {  // Track each player's score
     if (match == true && turn == -1) {
@@ -339,11 +285,11 @@ function runGame() {
       document.getElementById('p2').innerHTML = player2score;
       checkWin();
     } else if (match == false) {
-      console.log('no winners yet')
+      console.log('no match')
     }
-  } // end keepScore
+  } // end keepScore()
 
-  var checkWin = function() { //Check if either player has scored 5 times and declares a winner
+  var checkWin = function() { // Check if either player has scored 5 times and declare a winner
     if (player1score == 3) {
       gameOver = true;
       $('.result').remove();
@@ -359,9 +305,9 @@ function runGame() {
     } else {
       return gameOver;
     }
-  } // end checkWin
+  } // end checkWin()
 
-  function declareWinner() {
+  function declareWinner() { // Hide all tiles, clear game space, and display message for winner
     if (gameOver == true) {
       $('.playTile').remove();
       $('.gameTile').remove();
@@ -369,15 +315,13 @@ function runGame() {
       var audio = $('#win')[0];
         audio.play();
         if (turn == -1) {
-          console.log(turn);
           $('<div class=endGame id=winner>PLAYER 1 WINS!</div>').appendTo( $('#gameContainer'));
         } else {
           $('<div class=endGame id=winner>PLAYER 2 WINS!</div>').appendTo( $('#gameContainer'));
         }
-      $('<button class=replayButton>PLAY AGAIN</button>').appendTo( $('#console')); //Adds a ready button to console
+      $('<button class=replayButton>PLAY AGAIN</button>').appendTo( $('#console'));
       $('.replayButton').addClass('btn btn-lg');
       $('button.replayButton').click(function() {
-          console.log('Clear Board');
           player1score = 0;
           player2score = 0;
           turnNumber = 0;
@@ -386,11 +330,8 @@ function runGame() {
           $('.startButton').show();
           $('.endGame').remove();
           $('.score').remove();
-      })
+      });
     }
-    else {
-      console.log('hit announce Winner')
-    }
-  } // end declareWinner
+  } // end declareWinner()
   ready();
-} //End of runGame function
+} //End of runGame()
