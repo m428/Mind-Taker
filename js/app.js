@@ -45,8 +45,8 @@ var makeTiles = function() {
 
 //Create scoreboard and display initial score of 0
 var scoreBoard = function() {
-  $("<div >PLAYER 1</div>").appendTo( $("#player1"));
-  $("<div >PLAYER 2</div>").appendTo( $("#player2"));
+  $("<div class=score>PLAYER 1</div>").appendTo( $("#player1"));
+  $("<div class=score>PLAYER 2</div>").appendTo( $("#player2"));
   $("<div class=score id=p1></div>").appendTo( $("#player1"));
   $("<div class=score id=p2></div>").appendTo( $("#player2"));
   document.getElementById("p1").innerHTML = player1score;
