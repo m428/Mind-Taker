@@ -1,13 +1,13 @@
 window.onload = function () {
   $('button.startButton').click(function() {
-    var audio = $("#startSound")[0];
+    var audio = $('#startSound')[0];
       audio.play();
       makeTiles();
       makeReadyButton();
       runGame();
       scoreBoard();
-      $(".startButton").hide();
-      $(".instructions").hide();
+      $('.startButton').hide();
+      $('.instructions').hide();
   })
 };
 
@@ -28,35 +28,35 @@ var turnNumber = 0;
 var makeTiles = function() {
   //TODO refactor repetative code
   // TODO remove last div from each container and change 5 to 4 when generating index array
-  $("<div class=gameTile id=gTile1>1</div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile2>2</div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile3>3</div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile4>4</div>").appendTo( $("#gameContainer"));
-  $("<div class=gameTile id=gTile5>5</div>").appendTo( $("#gameContainer"));
-  console.log("Made game tiles");
-  $("<div class=playTile id=pTile1>1</div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile2>2</div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile3>3</div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile4>4</div>").appendTo( $("#playContainer"));
-  $("<div class=playTile id=pTile5>5</div>").appendTo( $("#playContainer"));
-  console.log("Made player tiles");
-  $("#playContainer").hide();
+  $('<div class=gameTile id=gTile1>1</div>').appendTo( $('#gameContainer'));
+  $('<div class=gameTile id=gTile2>2</div>').appendTo( $('#gameContainer'));
+  $('<div class=gameTile id=gTile3>3</div>').appendTo( $('#gameContainer'));
+  $('<div class=gameTile id=gTile4>4</div>').appendTo( $('#gameContainer'));
+  $('<div class=gameTile id=gTile5>5</div>').appendTo( $('#gameContainer'));
+  console.log('Made game tiles');
+  $('<div class=playTile id=pTile1>1</div>').appendTo( $('#playContainer'));
+  $('<div class=playTile id=pTile2>2</div>').appendTo( $('#playContainer'));
+  $('<div class=playTile id=pTile3>3</div>').appendTo( $('#playContainer'));
+  $('<div class=playTile id=pTile4>4</div>').appendTo( $('#playContainer'));
+  $('<div class=playTile id=pTile5>5</div>').appendTo( $('#playContainer'));
+  console.log('Made player tiles');
+  $('#playContainer').hide();
 }
 
 //Create scoreboard and display initial score of 0
 var scoreBoard = function() {
-  $("<div class=score>PLAYER 1</div>").appendTo( $("#player1"));
-  $("<div class=score>PLAYER 2</div>").appendTo( $("#player2"));
-  $("<div class=score id=p1></div>").appendTo( $("#player1"));
-  $("<div class=score id=p2></div>").appendTo( $("#player2"));
-  document.getElementById("p1").innerHTML = player1score;
-  document.getElementById("p2").innerHTML = player2score;
+  $('<div class=score>PLAYER 1</div>').appendTo( $('#player1'));
+  $('<div class=score>PLAYER 2</div>').appendTo( $('#player2'));
+  $('<div class=score id=p1></div>').appendTo( $('#player1'));
+  $('<div class=score id=p2></div>').appendTo( $('#player2'));
+  document.getElementById('p1').innerHTML = player1score;
+  document.getElementById('p2').innerHTML = player2score;
 }
 
 
 var makeReadyButton = function() {
-  $("<button class=readyButton>READY</button>").appendTo( $("#console")); //Adds a ready button to console
-  $(".readyButton").addClass("btn btn-lg");
+  $('<button class=readyButton>READY</button>').appendTo( $('#console')); //Adds a ready button to console
+  $('.readyButton').addClass('btn btn-lg');
 }
 
 ///////////////////////////// FUNCTION runGame /////////////////////////////////
@@ -67,7 +67,7 @@ function runGame() {
     $('button.readyButton').click(function() { //Adds a click to Ready? button and generates flash pattern.
   //  TODO play audio on first click only
     $('button.readyButton').hide();
-      // var audio = $("#readySound")[0];
+      // var audio = $('#readySound')[0];
       //   audio.play();
 
         makeArrayOfIndices = [];
@@ -76,10 +76,10 @@ function runGame() {
         flashPattern();
         turnNumber = turnNumber + 1;
         if (turnNumber == 1) {
-          console.log("This is turn number " + turnNumber);
+          console.log('This is turn number ' + turnNumber);
           recordPlayerInput();
         } else {
-          console.log("This is turn number " + turnNumber);
+          console.log('This is turn number ' + turnNumber);
         }
     });
   } // end ready
@@ -96,7 +96,7 @@ function runGame() {
 
   function highlightTile() {
      $('.playTile').click(function() {
-       var audio = $("#select")[0];
+       var audio = $('#select')[0];
          audio.play();
         var id = $(this).attr('id')
         var captureClicks = function() { //Capture player input and store clicks as an array for comparison against generated game array
@@ -189,73 +189,73 @@ function runGame() {
         var gameTiles = document.getElementsByClassName('gameTile');
         var t = 0;
           function flash() {
-            console.log("t = " + t)
+            console.log('t = ' + t)
             switch(t) {
               case 0:
-                console.log("hit case 0")
+                console.log('hit case 0')
                 var indexNum = makeArrayOfIndices[0];
                 var tile = gameTiles[indexNum];
-                var audio = $("#tileSound1")[0];
+                var audio = $('#tileSound1')[0];
                   audio.play();
                 $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 1:
-                console.log("hit case 1")
+                console.log('hit case 1')
                 var indexNum = makeArrayOfIndices[1];
                 var tile = gameTiles[indexNum];
-                var audio = $("#tileSound2")[0];
+                var audio = $('#tileSound2')[0];
                   audio.play();
                 $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 2:
-                console.log("hit case 2")
+                console.log('hit case 2')
                 var indexNum = makeArrayOfIndices[2];
                 var tile = gameTiles[indexNum];
-                var audio = $("#tileSound3")[0];
+                var audio = $('#tileSound3')[0];
                   audio.play();
                 $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 3:
-                console.log("hit case 3")
+                console.log('hit case 3')
                 var indexNum = makeArrayOfIndices[3];
                 var tile = gameTiles[indexNum];
-                var audio = $("#tileSound4")[0];
+                var audio = $('#tileSound4')[0];
                   audio.play();
                 $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               case 4:
-                console.log("hit case 4")
+                console.log('hit case 4')
                 var indexNum = makeArrayOfIndices[4];
                 var tile = gameTiles[indexNum];
-                var audio = $("#tileSound5")[0];
+                var audio = $('#tileSound5')[0];
                   audio.play();
                 $(tile).css('background-color','black');
                 setTimeout(clear, 200);
                 t++;
                   break;
               // case 5:
-              //   console.log("hit case 5")
+              //   console.log('hit case 5')
               //   var indexNum = makeArrayOfIndices[5];
               //   var tile = gameTiles[indexNum];
-              //   var audio = $("#tileSound5")[0];
+              //   var audio = $('#tileSound5')[0];
               //     audio.play();
               //   $(tile).css('background-color','black');
               //   setTimeout(clear, 200);
               //   t++;
               //     break;
               // case 5:
-              //   console.log("hit case 5")
+              //   console.log('hit case 5')
               //   var indexNum = makeArrayOfIndices[5];
               //   var tile = gameTiles[indexNum];
-              //   var audio = $("#tileSound7")[0];
+              //   var audio = $('#tileSound7')[0];
               //     audio.play();
               //   $(tile).css('background-color','black');
               //   setTimeout(clear, 200);
@@ -273,14 +273,14 @@ function runGame() {
 
           function playerTurn() {
             if (turn == 1) {
-              $("<div class=motivator>PLAYER 1 GO!</div>").appendTo("#console");
+              $('<div class=motivator>PLAYER 1 GO!</div>').appendTo('#console');
               } else {
-                $("<div class=motivator>PLAYER 2 GO!</div>").appendTo("#console");
+                $('<div class=motivator>PLAYER 2 GO!</div>').appendTo('#console');
               }
           } // end playerTurn
           var switchTiles = function() {
-            $("#gameContainer").hide();
-            $("#playContainer").show();
+            $('#gameContainer').hide();
+            $('#playContainer').show();
             playerTurn();
           }
           //Set timeout for multiple flashes
@@ -300,8 +300,8 @@ function runGame() {
     for (var i = 0; i < 5; i++) {
       if (playerClickArray[i] == undefined || playerClickArray[i] != makeArrayOfIndices[i]) {
          match = false;
-         $("#gameContainer").show();
-         $("#playContainer").hide();
+         $('#gameContainer').show();
+         $('#playContainer').hide();
          break;
        }
      }
@@ -309,22 +309,22 @@ function runGame() {
        var match = false;
        turn = turn * -1
        keepScore(match, turn);
-       $("#gameContainer").show();
-       $("#playContainer").hide();
-       $(".motivator").remove();
-       $("<div class=result id=noMatch>MIND TAKEN!</div>").appendTo("#console");
+       $('#gameContainer').show();
+       $('#playContainer').hide();
+       $('.motivator').remove();
+       $('<div class=result id=noMatch>MIND TAKEN!</div>').appendTo('#console');
      } else if (playerClickArray.length == makeArrayOfIndices.length) {
        match = true;
        turn = turn * -1
        keepScore(match, turn);
-       $("#gameContainer").show();
-       $("#playContainer").hide();
-       $(".motivator").remove();
-       $("<div class=result id=match>MIND IT!</div>").appendTo("#console");
+       $('#gameContainer').show();
+       $('#playContainer').hide();
+       $('.motivator').remove();
+       $('<div class=result id=match>MIND IT!</div>').appendTo('#console');
      }
        function removeResult() {
          $('button.readyButton').show();
-         $(".result").remove();
+         $('.result').remove();
        }
   setTimeout(removeResult, 3000);
   } // end checkForMatch
@@ -332,28 +332,28 @@ function runGame() {
   var keepScore = function(match, turn) {  // Track each player's score
     if (match == true && turn == -1) {
       player1score = player1score + 1;
-      document.getElementById("p1").innerHTML = player1score;
+      document.getElementById('p1').innerHTML = player1score;
       checkWin();
     } else if (match == true && turn == 1) {
       player2score = player2score + 1;
-      document.getElementById("p2").innerHTML = player2score;
+      document.getElementById('p2').innerHTML = player2score;
       checkWin();
     } else if (match == false) {
-      console.log("no winners yet")
+      console.log('no winners yet')
     }
   } // end keepScore
 
   var checkWin = function() { //Check if either player has scored 5 times and declares a winner
     if (player1score == 3) {
       gameOver = true;
-      $(".result").remove();
-      $(".readyButton").remove();
+      $('.result').remove();
+      $('.readyButton').remove();
       setTimeout(declareWinner, 4000);
       return gameOver;
     } else if (player2score == 3) {
         gameOver = true;
-        $(".result").remove();
-        $(".readyButton").remove();
+        $('.result').remove();
+        $('.readyButton').remove();
         setTimeout(declareWinner, 4000);
       return gameOver;
     } else {
@@ -363,33 +363,33 @@ function runGame() {
 
   function declareWinner() {
     if (gameOver == true) {
-      $(".playTile").remove();
-      $(".gameTile").remove();
-      $(".readyButton").remove();
-      var audio = $("#win")[0];
+      $('.playTile').remove();
+      $('.gameTile').remove();
+      $('.readyButton').remove();
+      var audio = $('#win')[0];
         audio.play();
         if (turn == -1) {
           console.log(turn);
-          $("<div class=endGame id=winner>PLAYER 1 WINS!</div>").appendTo( $("#gameContainer"));
+          $('<div class=endGame id=winner>PLAYER 1 WINS!</div>').appendTo( $('#gameContainer'));
         } else {
-          $("<div class=endGame id=winner>PLAYER 2 WINS!</div>").appendTo( $("#gameContainer"));
+          $('<div class=endGame id=winner>PLAYER 2 WINS!</div>').appendTo( $('#gameContainer'));
         }
-      $("<button class=replayButton>PLAY AGAIN</button>").appendTo( $("#console")); //Adds a ready button to console
-      $(".replayButton").addClass("btn btn-lg");
+      $('<button class=replayButton>PLAY AGAIN</button>').appendTo( $('#console')); //Adds a ready button to console
+      $('.replayButton').addClass('btn btn-lg');
       $('button.replayButton').click(function() {
-          console.log("Clear Board");
+          console.log('Clear Board');
           player1score = 0;
           player2score = 0;
           turnNumber = 0;
           turn = 1;
-          $(".replayButton").hide();
-          $(".startButton").show();
-          $(".endGame").remove();
+          $('.replayButton').hide();
+          $('.startButton').show();
+          $('.endGame').remove();
           $('.score').remove();
       })
     }
     else {
-      console.log("hit announce Winner")
+      console.log('hit announce Winner')
     }
   } // end declareWinner
   ready();
