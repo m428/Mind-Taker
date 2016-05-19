@@ -13,7 +13,7 @@ body, html {
 div.gifBackground {
   color: #ffffff;
   background-color: black;
-  background-size: cover;
+  /*background-size: cover;*/
   height: 100%;
   margin-top: 4%;
 }
@@ -210,15 +210,56 @@ margin-top: 8%;
   margin-bottom: 20px;
 }
 
+
+
+
+
+
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  /*height: auto !important;*/
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -40px;
+  /*overflow:hidden;*/
+}
+
 #footer {
   font-size: 8pt;
   color: #33FF00;
   margin-bottom: 4%;
   /*height: 100%;*/
   /*position: relative;*/
-  /*padding-top: 85%;*/
+  /*padding-top: 35%;*/
+  /*background-color: #000000;*/
+  height: 40px;
 
 }
+
+/* Lastly, apply responsive CSS fixes as necessary */
+   @media (max-width: 767px) {
+     #footer {
+       margin-left: -20px;
+       margin-right: -20px;
+       padding-left: 20px;
+       padding-right: 20px;
+     }
+   }
+
+
+.footer-gap {
+  background-color: #000000;
+}
+
+
+
+
+
+
+
+
 
 /*///// basic styles ///// */
 .center {
