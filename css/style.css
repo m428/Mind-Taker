@@ -1,0 +1,229 @@
+@import url(https://fonts.googleapis.com/css?family=Candal|Russo+One|Fredoka+One|Archivo+Black|Didact+Gothic|Changa+One|Doppio+One|Unica+One|Allerta+Stencil|Metrophobic|Monoton|Bowlby+One+SC|Gafata|Sniglet|Share+Tech);
+
+/*TODO make font-size responsive on mobile*/
+
+body, html {
+  height: 100%;
+  background: cover;
+  background-image: url('https://media.giphy.com/media/vxcuu6bLZDdm0/giphy.gif');
+  font-family: 'Doppio One', sans-serif;
+}
+
+div.gifBackground {
+  color: #ffffff;
+  background-color: black;
+  height: 100%;
+  margin-top: 4%;
+}
+
+#banner h1 {
+font-size: 60pt;
+font-family: 'Russo One', sans-serif;
+animation: colorChange 5s infinite;
+margin-top: 8%;
+}
+
+@keyframes colorChange {
+  0% { color: hsl(0, 0%, 100%); }
+  25% { color: hsl(108, 100%, 50%); }
+  50% { color: hsl(0, 0%, 100%); }
+  75% { color: hsl(300, 100%, 50%); }
+  100% { color: hsl(0, 0%, 100%); }
+}
+
+/*BUTTON STYLES, CONSOLE, & INSTRUCTIONS*/
+.btn {
+  background-color: #33FF00;
+  color: #000000;
+  font-family: 'Russo One', sans-serif;
+}
+
+.btn:hover {
+  background-color: #FF00FF;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  background-color: #33FF00;
+  outline: 0 none;
+}
+
+.readyButton:hover, .replayButton:hover {
+  background-color: #FF00FF;
+  color: #ffffff;
+}
+
+.pop {
+  color: #FF00FF;
+}
+
+#console {
+  height: 100px;
+}
+
+.instructions {
+  color: #33FF00;
+  font-size: 12pt;
+  outline: 10px dashed #33FF00;
+  padding: 3%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  animation: 5s animateBorder infinite;
+}
+
+@keyframes animateBorder {
+    0% { outline-color: hsl(0, 0%, 100%); }
+    25% { outline-color: hsl(108, 100%, 50%); }
+    50% { outline-color: hsl(0, 0%, 100%); }
+    75% { outline-color: hsl(300, 100%, 50%); }
+    100% { outline-color: hsl(0, 0%, 100%); }
+}
+
+/*GAME CONTAINER & PLAY CONTAINER*/
+.gameTile, .playTile {
+  display: inline-block;
+  background-color: gray;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 60px;
+  min-height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 20pt;
+  margin-top: 5%;
+  margin-left:1%;
+  margin-right: 1%;
+  margin-bottom: 5%;
+}
+
+#gTile1, #pTile1 {
+  background-color: #00CCFF;
+  color: #00CCFF;
+}
+
+#gTile2, #pTile2 {
+  background-color: #FFFF00;
+  color: #FFFF00;
+}
+
+#gTile3, #pTile3 {
+  background-color: #33FF00;
+  color: #33FF00;
+}
+
+#gTile4, #pTile4 {
+  background-color:  #FF0000;
+  color:  #FF0000;
+}
+
+#gTile5, #pTile5 {
+  background-color: #FF00FF;
+  color: #FF00FF;
+}
+
+/*SCOREBOARD & PATTERN MATCHING NOTIFICATIONS*/
+#scoreBoard {
+  font-family: 'Allerta Stencil', sans-serif;
+  font-size: 20pt;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#p1, #p2, #roundNumber {
+  font-size: 30pt;
+}
+
+.motivator, .result {
+  font-family: 'Russo One', sans-serif;
+  font-size: 30pt;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#noMatch {
+  animation: animateNoMatch 0.8s infinite;
+}
+
+@keyframes animateNoMatch {
+  to {
+    font-size: 35pt;
+  }
+  0% { color: hsl(60, 100%, 50%); }
+  50% { color: hsl(0, 100%, 50%); }
+  100% { color: hsl(60, 100%, 50%); }
+}
+
+#match {
+  animation: animateMatch 0.8s infinite;
+}
+
+@keyframes animateMatch {
+  to {
+    font-size: 35pt;
+  }
+  0% { color: hsl(108, 100%, 50%); }
+  25% { color: hsl(300, 100%, 50%); }
+  50% { color: hsl(0, 100%, 50%); }
+  75% { color: hsl(60, 100%, 50%); }
+  100% { color: hsl(192, 100%, 50%); }
+}
+
+/*DECLARE WINNER & END GAME */
+.endGame {
+  font-family: 'Russo One', sans-serif;
+  font-size: 30pt;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  animation: animateWinner 0.8s infinite;
+  padding: 0px;
+}
+
+@keyframes animateWinner {
+  0% { color: hsl(108, 100%, 50%); }
+  25% { color: hsl(300, 100%, 50%); }
+  50% { color: hsl(192, 100%, 50%); }
+  75% { color: hsl(0, 100%, 50%); }
+  100% { color: hsl(60, 100%, 50%); }
+}
+
+#winner {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*FOOTER & WRAPPER*/
+#wrap {    /* Wrapper for page content to push down footer */
+  min-height: 100%;
+  height: 100%;
+  margin: 0 auto -40px;   /* Negative indent footer by it's height */
+}
+
+#footer {
+  font-size: 8pt;
+  color: #33FF00;
+  margin-bottom: 4%;
+  height: 40px;
+}
+
+@media (max-width: 767px) {  /* Responsive CSS fixes */
+  #footer {
+   margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+   padding-right: 20px;
+  }
+}
+
+.footer-gap {
+  background-color: #000000;
+}
+
+/*BASIC STYLES*/
+.center {
+  text-align: center;
+}
