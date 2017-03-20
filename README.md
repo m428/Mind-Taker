@@ -18,7 +18,7 @@ A user of Mind Taker is able to:
   * Win the game after scoring 3 points
 
 
-###Screenshots
+### Screenshots
 ![Welcome](http://imgur.com/lrykgUE.png)
 ![Game](http://imgur.com/L5TvokZ.png)
 
