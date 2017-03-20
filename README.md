@@ -3,12 +3,12 @@
 Mind Taker is pattern matching memory game for 2 players. Theme inspired by Mentok the Mind Taker.
 View the app [HERE](https://m428.github.io/Mind-Taker/).
 
-###Technologies:
+### Technologies:
 * Built with JavaScript, JQuery, HTML, and CSS
 * Bootstrap
 
 
-###User Stories
+### User Stories
 
 A user of Mind Taker is able to:
   * Begin a new game with another player
